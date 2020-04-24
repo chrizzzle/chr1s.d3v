@@ -1,0 +1,37 @@
+{
+  "name": "slide-menu",
+  "version": "1.0.0",
+  "description": "A sliding menu for mobile and desktop using JS and CSS",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/chrizzzle/slide-menu.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/chrizzzle/slide-menu/issues"
+  },
+  "homepage": "https://github.com/chrizzzle/slide-menu#readme",
+  "dependencies": {
+    "material-design-icons": "^3.0.1"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.9.0",
+    "@babel/preset-env": "^7.9.5",
+    "autoprefixer": "^9.7.6",
+    "basscss": "^8.1.0",
+    "gulp": "^4.0.2",
+    "gulp-babel": "^8.0.0",
+    "gulp-clean-css": "^4.3.0",
+    "gulp-postcss": "^8.0.0",
+    "gulp-sass": "^4.1.0",
+    "gulp-sourcemaps": "^2.6.5",
+    "gulp-uglify": "^3.0.2",
+    "normalize.css": "^8.0.1"
+  }
+}

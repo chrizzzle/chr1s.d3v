@@ -1,0 +1,133 @@
+.menu {
+  flex: 1;
+  background-color: $color-primary;
+  position: relative;
+  overflow-x: hidden;
+  overflow-y: auto;
+  padding-top: 35px;
+
+  &__list-item-title {
+    font-weight: bold;
+  }
+  &__list-item-subtitle {
+    font-size: 0.9rem;
+  }
+  &__list-item-icon {
+    flex: 0;
+  }
+  &__list-item-info {
+    flex: 1;
+  }
+  &__list-item-link,
+  &__list-item-button {
+    outline: none;
+    width: 100%;
+    cursor: pointer;
+    text-align: left;
+    border: none;
+    display: flex;
+    align-items: center;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    padding-left: 35px;
+    color: $color-3;
+    border-bottom: 1px solid $color-2;
+    text-decoration: none;
+    background-color: transparent;
+    &:hover {
+      color: $color-4;
+    }
+  }
+
+  &__list-item {
+    &:last-child {
+        & > .menu__list-item-link,
+        & > .menu__list-item-button {
+            border-bottom: none;
+        }
+      }
+  }
+  &__list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    transform: translateX(0);
+    transition: transform 150ms ease-in-out;
+
+    .menu__list {
+        position: absolute;
+        transform: translateX(100%);
+        top: 0;
+        width: 100%;
+    }
+
+    &--hidden {
+        display: none;
+    }
+  }
+}
+
+.slide {
+  display: flex;
+  flex: 1;
+  width: 100%;
+  position: relative;
+  justify-content: flex-start;
+  align-items: stretch;
+  transform: translateX(calc(-100% + 35px));
+  transition: transform 100ms;
+
+  &--open {
+      transform: translateX(0);
+  }
+  &__title {
+    margin: 0;
+    color: $color-4;
+    font-size: 1rem;
+    font-weight: bold;
+    line-height: 35px;
+    flex: 1;
+  }
+  &__toggle,
+  &__back {
+    cursor: pointer;
+    border: none;
+    height: 35px;
+    padding: 0;
+    margin: 0;
+    display: block;
+    background-color: $color-primary;
+    color: $color-3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &:hover {
+        color: $color-4;
+      }
+  }
+
+  &__top-bar {
+      position: absolute;
+      display: flex;
+      height: 37px;
+      left: 0;
+      width: 100%;
+      background-color: $color-primary;
+      box-shadow: inset 0px -2px 0px 0 #000;
+  }
+
+  &__toggle {
+      flex: 0 0 35px;
+      z-index: 1;
+  }
+
+  &__back {
+      width: 35px;
+
+      &--hidden {
+          visibility: hidden;
+      }
+  }
+    
+}

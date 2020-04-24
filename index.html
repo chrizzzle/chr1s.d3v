@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+
+    <title>Responsive Sliding Off-Canvas Menu - chr15.d3v</title>
+    <title>Tock Online</title>
+    <link rel="stylesheet" href="dist/styles.css" />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body>
+    <h1>Off Canvas Sliding Menu</h1>
+
+    <div class="slide">
+      <div class="menu">
+        <ul class="menu__list menu__list--root">
+          <li class="menu__list-item">
+            <button class="menu__list-item-button">
+              <span class="menu__list-item-info">
+                <span class="menu__list-item-title">Item 1</span><br />
+                <span class="menu__list-item-subtitle"
+                  >The first item (has children)</span
+                >
+              </span>
+              <i class="menu__list-item-icon material-icons">chevron_right</i>
+            </button>
+            <ul class="menu__list menu__list--hidden">
+              <li class="menu__list-item">
+                <button target="_blank" class="menu__list-item-button">
+                  <span class="menu__list-item-info">
+                    <span class="menu__list-item-title">Item 1.1</span><br />
+                    <span class="menu__list-item-subtitle"
+                      >The item 1.1 subtitle</span
+                    >
+                  </span>
+                  <i class="menu__list-item-icon material-icons"
+                    >chevron_right</i
+                  >
+                </button>
+                <ul class="menu__list menu__list--hidden">
+                  <li class="menu__list-item">
+                    <a
+                      href="https://www.example.com"
+                      target="_blank"
+                      class="menu__list-item-link"
+                    >
+                      <span class="menu__list-item-info">
+                        <span class="menu__list-item-title">Item 1.1.1</span
+                        ><br />
+                        <span class="menu__list-item-subtitle"
+                          >The item 1.1.1 subtitle</span
+                        >
+                      </span>
+                    </a>
+                  </li>
+                  <li class="menu__list-item">
+                    <a
+                      href="https://www.example.com"
+                      target="_blank"
+                      class="menu__list-item-link"
+                    >
+                      <span class="menu__list-item-info">
+                        <span class="menu__list-item-title">Item 1.1.2</span
+                        ><br />
+                        <span class="menu__list-item-subtitle"
+                          >The item 1.1.2 subtitle</span
+                        >
+                      </span>
+                    </a>
+                  </li>
+                  <li class="menu__list-item">
+                    <a
+                      href="https://www.example.com"
+                      target="_blank"
+                      class="menu__list-item-link"
+                    >
+                      <span class="menu__list-item-info">
+                        <span class="menu__list-item-title">Item 1.1.3</span
+                        ><br />
+                        <span class="menu__list-item-subtitle"
+                          >The item 1.1.3 subtitle</span
+                        >
+                      </span>
+                    </a>
+                  </li>
+                </ul>
+              </li>
+              <li class="menu__list-item">
+                <a
+                  href="https://www.example.com"
+                  target="_blank"
+                  class="menu__list-item-link"
+                >
+                  <span class="menu__list-item-info">
+                    <span class="menu__list-item-title">Item 1.2</span><br />
+                    <span class="menu__list-item-subtitle"
+                      >The item 1.2 subtitle</span
+                    >
+                  </span>
+                </a>
+              </li>
+              <li class="menu__list-item">
+                <a
+                  href="https://www.example.com"
+                  target="_blank"
+                  class="menu__list-item-link"
+                >
+                  <span class="menu__list-item-info">
+                    <span class="menu__list-item-title">Item 1.3</span><br />
+                    <span class="menu__list-item-subtitle"
+                      >The item 1.3 subtitle</span
+                    >
+                  </span>
+                </a>
+              </li>
+              <li class="menu__list-item">
+                <a
+                  href="https://www.example.com"
+                  target="_blank"
+                  class="menu__list-item-link"
+                >
+                  <span class="menu__list-item-info">
+                    <span class="menu__list-item-title">Item 1.4</span><br />
+                    <span class="menu__list-item-subtitle"
+                      >The item 1.4 subtitle</span
+                    >
+                  </span>
+                </a>
+              </li>
+            </ul>
+          </li>
+          <li class="menu__list-item">
+            <button class="menu__list-item-button">
+              <span class="menu__list-item-info">
+                <span class="menu__list-item-title">Item 2</span><br />
+                <span class="menu__list-item-subtitle"
+                  >The second item (has children)</span
+                >
+              </span>
+              <i class="menu__list-item-icon material-icons">chevron_right</i>
+            </button>
+            <ul class="menu__list menu__list--hidden">
+              <li class="menu__list-item">
+                <a
+                  href="https://www.example.com"
+                  target="_blank"
+                  class="menu__list-item-link"
+                >
+                  <span class="menu__list-item-info">
+                    <span class="menu__list-item-title">Item 2.1</span><br />
+                    <span class="menu__list-item-subtitle"
+                      >The item 2.1 subtitle</span
+                    >
+                  </span>
+                </a>
+              </li>
+            </ul>
+          </li>
+          <li class="menu__list-item">
+            <button class="menu__list-item-button">
+              <span class="menu__list-item-info">
+                <span class="menu__list-item-title">Item 3</span><br />
+                <span class="menu__list-item-subtitle"
+                  >The third item (has children)</span
+                >
+              </span>
+              <i class="menu__list-item-icon material-icons">chevron_right</i>
+            </button>
+            <ul class="menu__list menu__list--hidden">
+              <li class="menu__list-item">
+                <a
+                  href="https://www.example.com"
+                  target="_blank"
+                  class="menu__list-item-link"
+                >
+                  <span class="menu__list-item-info">
+                    <span class="menu__list-item-title">Item 3.1</span><br />
+                    <span class="menu__list-item-subtitle"
+                      >The item 3.1 subtitle</span
+                    >
+                  </span>
+                </a>
+              </li>
+              <li class="menu__list-item">
+                <a
+                  href="https://www.example.com"
+                  target="_blank"
+                  class="menu__list-item-link"
+                >
+                  <span class="menu__list-item-info">
+                    <span class="menu__list-item-title">Item 3.2</span><br />
+                    <span class="menu__list-item-subtitle"
+                      >The item 3.2 subtitle</span
+                    >
+                  </span>
+                </a>
+              </li>
+              <li class="menu__list-item">
+                <a
+                  href="https://www.example.com"
+                  target="_blank"
+                  class="menu__list-item-link"
+                >
+                  <span class="menu__list-item-info">
+                    <span class="menu__list-item-title">Item 3.3</span><br />
+                    <span class="menu__list-item-subtitle"
+                      >The item 3.3 subtitle</span
+                    >
+                  </span>
+                </a>
+              </li>
+              <li class="menu__list-item">
+                <a
+                  href="https://www.example.com"
+                  target="_blank"
+                  class="menu__list-item-link"
+                >
+                  <span class="menu__list-item-info">
+                    <span class="menu__list-item-title">Item 3.4</span><br />
+                    <span class="menu__list-item-subtitle"
+                      >The item 3.4 subtitle</span
+                    >
+                  </span>
+                </a>
+              </li>
+              <li class="menu__list-item">
+                <a
+                  href="https://www.example.com"
+                  target="_blank"
+                  class="menu__list-item-link"
+                >
+                  <span class="menu__list-item-info">
+                    <span class="menu__list-item-title">Item 3.5</span><br />
+                    <span class="menu__list-item-subtitle"
+                      >The item 3.5 subtitle</span
+                    >
+                  </span>
+                </a>
+              </li>
+              <li class="menu__list-item">
+                <a
+                  href="https://www.example.com"
+                  target="_blank"
+                  class="menu__list-item-link"
+                >
+                  <span class="menu__list-item-info">
+                    <span class="menu__list-item-title">Item 3.6</span><br />
+                    <span class="menu__list-item-subtitle"
+                      >The item 3.6 subtitle</span
+                    >
+                  </span>
+                </a>
+              </li>
+              <li class="menu__list-item">
+                <a
+                  href="https://www.example.com"
+                  target="_blank"
+                  class="menu__list-item-link"
+                >
+                  <span class="menu__list-item-info">
+                    <span class="menu__list-item-title">Item 3.7</span><br />
+                    <span class="menu__list-item-subtitle"
+                      >The item 3.7 subtitle</span
+                    >
+                  </span>
+                </a>
+              </li>
+              <li class="menu__list-item">
+                <a
+                  href="https://www.example.com"
+                  target="_blank"
+                  class="menu__list-item-link"
+                >
+                  <span class="menu__list-item-info">
+                    <span class="menu__list-item-title">Item 3.8</span><br />
+                    <span class="menu__list-item-subtitle"
+                      >The item 3.8 subtitle</span
+                    >
+                  </span>
+                </a>
+              </li>
+              <li class="menu__list-item">
+                <a
+                  href="https://www.example.com"
+                  target="_blank"
+                  class="menu__list-item-link"
+                >
+                  <span class="menu__list-item-info">
+                    <span class="menu__list-item-title">Item 3.9</span><br />
+                    <span class="menu__list-item-subtitle"
+                      >The item 3.9 subtitle. Sooo many items. Please try scrolling to the bottom</span
+                    >
+                  </span>
+                </a>
+              </li>
+              <li class="menu__list-item">
+                <a
+                  href="https://www.example.com"
+                  target="_blank"
+                  class="menu__list-item-link"
+                >
+                  <span class="menu__list-item-info">
+                    <span class="menu__list-item-title">Item 3.10</span><br />
+                    <span class="menu__list-item-subtitle"
+                      >The item 3.10 subtitle</span
+                    >
+                  </span>
+                </a>
+              </li>
+              <li class="menu__list-item">
+                <a
+                  href="https://www.example.com"
+                  target="_blank"
+                  class="menu__list-item-link"
+                >
+                  <span class="menu__list-item-info">
+                    <span class="menu__list-item-title">Item 3.11</span><br />
+                    <span class="menu__list-item-subtitle"
+                      >The item 3.11 subtitle</span
+                    >
+                  </span>
+                </a>
+              </li>
+              <li class="menu__list-item">
+                <a
+                  href="https://www.example.com"
+                  target="_blank"
+                  class="menu__list-item-link"
+                >
+                  <span class="menu__list-item-info">
+                    <span class="menu__list-item-title">Item 3.12</span><br />
+                    <span class="menu__list-item-subtitle"
+                      >The item 3.12 subtitle</span
+                    >
+                  </span>
+                </a>
+              </li>
+              <li class="menu__list-item">
+                <a
+                  href="https://www.example.com"
+                  target="_blank"
+                  class="menu__list-item-link"
+                >
+                  <span class="menu__list-item-info">
+                    <span class="menu__list-item-title">Item 3.13</span><br />
+                    <span class="menu__list-item-subtitle"
+                      >The item 3.13 subtitle</span
+                    >
+                  </span>
+                </a>
+              </li>
+              <li class="menu__list-item">
+                <a
+                  href="https://www.example.com"
+                  target="_blank"
+                  class="menu__list-item-link"
+                >
+                  <span class="menu__list-item-info">
+                    <span class="menu__list-item-title">Item 3.14</span><br />
+                    <span class="menu__list-item-subtitle"
+                      >The item 3.14 subtitle</span
+                    >
+                  </span>
+                </a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+      <button class="slide__toggle">
+        <i class="slide__toggle-icon material-icons">menu</i>
+      </button>
+      <div class="slide__top-bar">
+        <button class="slide__back slide__back--hidden">
+          <i class="slide__toggle-icon material-icons">chevron_left</i>
+        </button>
+        <h2 class="slide__title">Navigation</h2>
+      </div>
+    </div>
+
+    <script type="text/javascript" src="dist/menu.js"></script>
+  </body>
+</html>
