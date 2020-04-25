@@ -1,2 +1,9 @@
 # slide-menu
-A sliding menu for mobile and desktop using JS and CSS
+
+A responsive multi-level hierarchy sliding off-canvas menu using JS and CSS
+
+## Setup
+
+- Clone this repository
+- npm install
+- open index.html file

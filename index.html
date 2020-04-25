@@ -7,27 +7,67 @@
       content="width=device-width, initial-scale=1, shrink-to-fit=no"
     />
 
-    <title>Responsive Sliding Off-Canvas Menu - chr15.d3v</title>
-    <title>Tock Online</title>
+    <title>A responsive multi-level hierarchy sliding off-canvas menu using JS and CSS - chr15.d3v</title>
     <link rel="stylesheet" href="dist/styles.css" />
     <link
       href="https://fonts.googleapis.com/icon?family=Material+Icons"
       rel="stylesheet"
     />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap"
+      rel="stylesheet"
+    />
   </head>
 
   <body>
-    <h1>Off Canvas Sliding Menu</h1>
+    <div class="content">
+      <h1 class="title">A responsive multi-level hierarchy sliding off-canvas menu using JS and CSS</h1>
+      <ul>
+        <li>Responsive</li>
+        <li>Vertical Scrolling if required</li>
+        <li>Free to use</li>
+        <li>Plain HTML5, JS & CSS</li>
+        <li>Google Material Design Icons</li>
+        <li>JS: <ul>
+          <li>Vanilla JS</li>
+          <li>EcmaScript 6</li>
+        </ul></li>
+        <li>
+          CSS:
+          <ul>
+            <li>SCSS with BEM-Syntax</li>
+            <li>Flexbox</li>
+          </ul>
+        </li>
+        <li>
+          Setup:
+          <ul>
+            <li>gulp</li>
+            <li>gulp-sass</li>
+            <li>gulp-babel</li>
+            <li>gulp-uglify</li>
+            <li>gulp-clean-css</li>
+            <li>gulp-postcss</li>
+            <li>gulp-sourcemaps</li>
+          </ul>
+        </li>
+        <li>Works in modern browsers</li>
+      </ul>
+      <ul>
+        <li><a href="https://github.com/chrizzzle/slide-menu">Github</a></li>
+      </ul>
+    </div>
 
-    <div class="slide">
-      <div class="menu">
+    <nav class="slide">
+      <div class="menu" id="menu">
         <ul class="menu__list menu__list--root">
           <li class="menu__list-item">
             <button class="menu__list-item-button">
+              <i class="material-icons menu__list-item-start-icon">house</i>
               <span class="menu__list-item-info">
                 <span class="menu__list-item-title">Item 1</span><br />
                 <span class="menu__list-item-subtitle"
-                  >The first item (has children)</span
+                  >Multi-hierarchy navigation</span
                 >
               </span>
               <i class="menu__list-item-icon material-icons">chevron_right</i>
@@ -35,6 +75,8 @@
             <ul class="menu__list menu__list--hidden">
               <li class="menu__list-item">
                 <button target="_blank" class="menu__list-item-button">
+                  <i class="material-icons menu__list-item-start-icon">golf_course</i>
+
                   <span class="menu__list-item-info">
                     <span class="menu__list-item-title">Item 1.1</span><br />
                     <span class="menu__list-item-subtitle"
@@ -52,6 +94,8 @@
                       target="_blank"
                       class="menu__list-item-link"
                     >
+                    <i class="material-icons menu__list-item-start-icon">kitchen</i>
+
                       <span class="menu__list-item-info">
                         <span class="menu__list-item-title">Item 1.1.1</span
                         ><br />
@@ -67,6 +111,8 @@
                       target="_blank"
                       class="menu__list-item-link"
                     >
+                    <i class="material-icons menu__list-item-start-icon">meeting_room</i>
+
                       <span class="menu__list-item-info">
                         <span class="menu__list-item-title">Item 1.1.2</span
                         ><br />
@@ -82,6 +128,9 @@
                       target="_blank"
                       class="menu__list-item-link"
                     >
+
+                    <i class="material-icons menu__list-item-start-icon">pool</i>
+
                       <span class="menu__list-item-info">
                         <span class="menu__list-item-title">Item 1.1.3</span
                         ><br />
@@ -99,6 +148,8 @@
                   target="_blank"
                   class="menu__list-item-link"
                 >
+                <i class="material-icons menu__list-item-start-icon">room_service</i>
+
                   <span class="menu__list-item-info">
                     <span class="menu__list-item-title">Item 1.2</span><br />
                     <span class="menu__list-item-subtitle"
@@ -113,6 +164,8 @@
                   target="_blank"
                   class="menu__list-item-link"
                 >
+                <i class="material-icons menu__list-item-start-icon">hot_tub</i>
+
                   <span class="menu__list-item-info">
                     <span class="menu__list-item-title">Item 1.3</span><br />
                     <span class="menu__list-item-subtitle"
@@ -127,6 +180,8 @@
                   target="_blank"
                   class="menu__list-item-link"
                 >
+                <i class="material-icons menu__list-item-start-icon">fitness_center</i>
+
                   <span class="menu__list-item-info">
                     <span class="menu__list-item-title">Item 1.4</span><br />
                     <span class="menu__list-item-subtitle"
@@ -139,6 +194,8 @@
           </li>
           <li class="menu__list-item">
             <button class="menu__list-item-button">
+              <i class="material-icons menu__list-item-start-icon">child_friendly</i>
+
               <span class="menu__list-item-info">
                 <span class="menu__list-item-title">Item 2</span><br />
                 <span class="menu__list-item-subtitle"
@@ -154,6 +211,8 @@
                   target="_blank"
                   class="menu__list-item-link"
                 >
+                <i class="material-icons menu__list-item-start-icon">child_care</i>
+
                   <span class="menu__list-item-info">
                     <span class="menu__list-item-title">Item 2.1</span><br />
                     <span class="menu__list-item-subtitle"
@@ -162,10 +221,220 @@
                   </span>
                 </a>
               </li>
+              <li class="menu__list-item">
+                <a
+                  href="https://www.example.com"
+                  target="_blank"
+                  class="menu__list-item-link"
+                >
+                <i class="material-icons menu__list-item-start-icon">casino</i>
+
+                  <span class="menu__list-item-info">
+                    <span class="menu__list-item-title">Item 2.2</span><br />
+                    <span class="menu__list-item-subtitle"
+                      >The item 2.2 subtitle</span
+                    >
+                  </span>
+                </a>
+              </li>
+              <li class="menu__list-item">
+                <a
+                  href="https://www.example.com"
+                  target="_blank"
+                  class="menu__list-item-link"
+                >
+                <i class="material-icons menu__list-item-start-icon">beach_access</i>
+
+                  <span class="menu__list-item-info">
+                    <span class="menu__list-item-title">Item 2.3</span><br />
+                    <span class="menu__list-item-subtitle"
+                      >The item 2.3 subtitle</span
+                    >
+                  </span>
+                </a>
+              </li>
+              <li class="menu__list-item">
+                <a
+                  href="https://www.example.com"
+                  target="_blank"
+                  class="menu__list-item-link"
+                >
+                <i class="material-icons menu__list-item-start-icon">business_center</i>
+
+                  <span class="menu__list-item-info">
+                    <span class="menu__list-item-title">Item 2.4</span><br />
+                    <span class="menu__list-item-subtitle"
+                      >The item 2.4 subtitle</span
+                    >
+                  </span>
+                </a>
+              </li>
+              <li class="menu__list-item">
+                <a
+                  href="https://www.example.com"
+                  target="_blank"
+                  class="menu__list-item-link"
+                >
+                <i class="material-icons menu__list-item-start-icon">wc</i>
+
+                  <span class="menu__list-item-info">
+                    <span class="menu__list-item-title">Item 2.5</span><br />
+                    <span class="menu__list-item-subtitle"
+                      >The item 2.5 subtitle</span
+                    >
+                  </span>
+                </a>
+              </li>
+              <li class="menu__list-item">
+                <a
+                  href="https://www.example.com"
+                  target="_blank"
+                  class="menu__list-item-link"
+                >
+                <i class="material-icons menu__list-item-start-icon">ac_unit</i>
+
+                  <span class="menu__list-item-info">
+                    <span class="menu__list-item-title">Item 2.6</span><br />
+                    <span class="menu__list-item-subtitle"
+                      >The item 2.6 subtitle</span
+                    >
+                  </span>
+                </a>
+              </li>
+              <li class="menu__list-item">
+                <a
+                  href="https://www.example.com"
+                  target="_blank"
+                  class="menu__list-item-link"
+                >
+                <i class="material-icons menu__list-item-start-icon">spa</i>
+
+                  <span class="menu__list-item-info">
+                    <span class="menu__list-item-title">Item 2.7</span><br />
+                    <span class="menu__list-item-subtitle"
+                      >The item 2.7 subtitle</span
+                    >
+                  </span>
+                </a>
+              </li>
+              <li class="menu__list-item">
+                <a
+                  href="https://www.example.com"
+                  target="_blank"
+                  class="menu__list-item-link"
+                >
+                <i class="material-icons menu__list-item-start-icon">storefront</i>
+
+                  <span class="menu__list-item-info">
+                    <span class="menu__list-item-title">Item 2.8</span><br />
+                    <span class="menu__list-item-subtitle"
+                      >The item 2.8 subtitle</span
+                    >
+                  </span>
+                </a>
+              </li>
+              <li class="menu__list-item">
+                <a
+                  href="https://www.example.com"
+                  target="_blank"
+                  class="menu__list-item-link"
+                >
+                <i class="material-icons menu__list-item-start-icon">cake</i>
+
+                  <span class="menu__list-item-info">
+                    <span class="menu__list-item-title">Item 2.9</span><br />
+                    <span class="menu__list-item-subtitle"
+                      >The item 2.9 subtitle</span
+                    >
+                  </span>
+                </a>
+              </li>
+              <li class="menu__list-item">
+                <a
+                  href="https://www.example.com"
+                  target="_blank"
+                  class="menu__list-item-link"
+                >
+                <i class="material-icons menu__list-item-start-icon">deck</i>
+
+                  <span class="menu__list-item-info">
+                    <span class="menu__list-item-title">Item 2.10</span><br />
+                    <span class="menu__list-item-subtitle"
+                      >The item 2.10 subtitle</span
+                    >
+                  </span>
+                </a>
+              </li>
+              <li class="menu__list-item">
+                <a
+                  href="https://www.example.com"
+                  target="_blank"
+                  class="menu__list-item-link"
+                >
+                <i class="material-icons menu__list-item-start-icon">layers</i>
+
+                  <span class="menu__list-item-info">
+                    <span class="menu__list-item-title">Item 2.11</span><br />
+                    <span class="menu__list-item-subtitle"
+                      >The item 2.11 subtitle</span
+                    >
+                  </span>
+                </a>
+              </li>
+              <li class="menu__list-item">
+                <a
+                  href="https://www.example.com"
+                  target="_blank"
+                  class="menu__list-item-link"
+                >
+                <i class="material-icons menu__list-item-start-icon">fireplace</i>
+
+                  <span class="menu__list-item-info">
+                    <span class="menu__list-item-title">Item 2.12</span><br />
+                    <span class="menu__list-item-subtitle"
+                      >The item 2.12 subtitle</span
+                    >
+                  </span>
+                </a>
+              </li>
+              <li class="menu__list-item">
+                <a
+                  href="https://www.example.com"
+                  target="_blank"
+                  class="menu__list-item-link"
+                >
+                <i class="material-icons menu__list-item-start-icon">mood_bad</i>
+
+                  <span class="menu__list-item-info">
+                    <span class="menu__list-item-title">Item 2.13</span><br />
+                    <span class="menu__list-item-subtitle"
+                      >The item 2.13 subtitle</span
+                    >
+                  </span>
+                </a>
+              </li>
+              <li class="menu__list-item">
+                <a
+                  href="https://www.example.com"
+                  target="_blank"
+                  class="menu__list-item-link"
+                >
+                <i class="material-icons menu__list-item-start-icon">location_city</i>
+
+                  <span class="menu__list-item-info">
+                    <span class="menu__list-item-title">Item 2.14</span><br />
+                    <span class="menu__list-item-subtitle"
+                      >The item 2.14 subtitle</span
+                    >
+                  </span>
+                </a>
+              </li>
             </ul>
           </li>
           <li class="menu__list-item">
             <button class="menu__list-item-button">
+              <i class="material-icons menu__list-item-start-icon">school</i>
+
               <span class="menu__list-item-info">
                 <span class="menu__list-item-title">Item 3</span><br />
                 <span class="menu__list-item-subtitle"
@@ -181,6 +450,8 @@
                   target="_blank"
                   class="menu__list-item-link"
                 >
+                <i class="material-icons menu__list-item-start-icon">sports_golf</i>
+
                   <span class="menu__list-item-info">
                     <span class="menu__list-item-title">Item 3.1</span><br />
                     <span class="menu__list-item-subtitle"
@@ -195,6 +466,8 @@
                   target="_blank"
                   class="menu__list-item-link"
                 >
+                <i class="material-icons menu__list-item-start-icon">sports_football</i>
+
                   <span class="menu__list-item-info">
                     <span class="menu__list-item-title">Item 3.2</span><br />
                     <span class="menu__list-item-subtitle"
@@ -209,6 +482,8 @@
                   target="_blank"
                   class="menu__list-item-link"
                 >
+                <i class="material-icons menu__list-item-start-icon">sports_esports</i>
+
                   <span class="menu__list-item-info">
                     <span class="menu__list-item-title">Item 3.3</span><br />
                     <span class="menu__list-item-subtitle"
@@ -223,6 +498,8 @@
                   target="_blank"
                   class="menu__list-item-link"
                 >
+                <i class="material-icons menu__list-item-start-icon">star_half</i>
+
                   <span class="menu__list-item-info">
                     <span class="menu__list-item-title">Item 3.4</span><br />
                     <span class="menu__list-item-subtitle"
@@ -237,6 +514,8 @@
                   target="_blank"
                   class="menu__list-item-link"
                 >
+                <i class="material-icons menu__list-item-start-icon">event_available</i>
+
                   <span class="menu__list-item-info">
                     <span class="menu__list-item-title">Item 3.5</span><br />
                     <span class="menu__list-item-subtitle"
@@ -251,6 +530,8 @@
                   target="_blank"
                   class="menu__list-item-link"
                 >
+                <i class="material-icons menu__list-item-start-icon">adb</i>
+
                   <span class="menu__list-item-info">
                     <span class="menu__list-item-title">Item 3.6</span><br />
                     <span class="menu__list-item-subtitle"
@@ -265,6 +546,8 @@
                   target="_blank"
                   class="menu__list-item-link"
                 >
+                <i class="material-icons menu__list-item-start-icon">subway</i>
+
                   <span class="menu__list-item-info">
                     <span class="menu__list-item-title">Item 3.7</span><br />
                     <span class="menu__list-item-subtitle"
@@ -279,6 +562,8 @@
                   target="_blank"
                   class="menu__list-item-link"
                 >
+                <i class="material-icons menu__list-item-start-icon">terrain</i>
+
                   <span class="menu__list-item-info">
                     <span class="menu__list-item-title">Item 3.8</span><br />
                     <span class="menu__list-item-subtitle"
@@ -293,10 +578,13 @@
                   target="_blank"
                   class="menu__list-item-link"
                 >
+                <i class="material-icons menu__list-item-start-icon">two_wheeler</i>
+
                   <span class="menu__list-item-info">
                     <span class="menu__list-item-title">Item 3.9</span><br />
                     <span class="menu__list-item-subtitle"
-                      >The item 3.9 subtitle. Sooo many items. Please try scrolling to the bottom</span
+                      >The item 3.9 subtitle. Sooo many items. Please try
+                      scrolling to the bottom</span
                     >
                   </span>
                 </a>
@@ -307,6 +595,8 @@
                   target="_blank"
                   class="menu__list-item-link"
                 >
+                <i class="material-icons menu__list-item-start-icon">local_gas_station</i>
+
                   <span class="menu__list-item-info">
                     <span class="menu__list-item-title">Item 3.10</span><br />
                     <span class="menu__list-item-subtitle"
@@ -321,6 +611,8 @@
                   target="_blank"
                   class="menu__list-item-link"
                 >
+                <i class="material-icons menu__list-item-start-icon">local_library</i>
+
                   <span class="menu__list-item-info">
                     <span class="menu__list-item-title">Item 3.11</span><br />
                     <span class="menu__list-item-subtitle"
@@ -335,6 +627,8 @@
                   target="_blank"
                   class="menu__list-item-link"
                 >
+                <i class="material-icons menu__list-item-start-icon">local_mall</i>
+
                   <span class="menu__list-item-info">
                     <span class="menu__list-item-title">Item 3.12</span><br />
                     <span class="menu__list-item-subtitle"
@@ -349,6 +643,8 @@
                   target="_blank"
                   class="menu__list-item-link"
                 >
+                <i class="material-icons menu__list-item-start-icon">local_airport</i>
+
                   <span class="menu__list-item-info">
                     <span class="menu__list-item-title">Item 3.13</span><br />
                     <span class="menu__list-item-subtitle"
@@ -363,6 +659,8 @@
                   target="_blank"
                   class="menu__list-item-link"
                 >
+                <i class="material-icons menu__list-item-start-icon">fastfood</i>
+
                   <span class="menu__list-item-info">
                     <span class="menu__list-item-title">Item 3.14</span><br />
                     <span class="menu__list-item-subtitle"
@@ -375,7 +673,12 @@
           </li>
         </ul>
       </div>
-      <button class="slide__toggle">
+      <button
+        class="slide__toggle"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+        aria-controls="menu"
+      >
         <i class="slide__toggle-icon material-icons">menu</i>
       </button>
       <div class="slide__top-bar">
@@ -384,7 +687,7 @@
         </button>
         <h2 class="slide__title">Navigation</h2>
       </div>
-    </div>
+    </nav>
 
     <script type="text/javascript" src="dist/menu.js"></script>
   </body>

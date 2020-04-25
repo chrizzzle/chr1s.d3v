@@ -4,13 +4,12 @@ const uglify = require("gulp-uglify");
 const cleanCSS = require("gulp-clean-css");
 const sourcemaps = require("gulp-sourcemaps");
 const babel = require("gulp-babel");
+const postcss = require("gulp-postcss");
 
 const sassGlob = "src/sass/**/*.scss";
 const jsGlob = "src/js/**/*.js";
 
 gulp.task("css", function () {
-  const postcss = require("gulp-postcss");
-
   return new Promise(function (resolve, reject) {
     gulp
       .src(sassGlob)
@@ -42,6 +41,7 @@ gulp.task("script", function () {
           presets: ["@babel/env"],
         })
       )
+      .pipe(uglify())
       .pipe(sourcemaps.write('.'))
       .pipe(gulp.dest("dist/"))
       .on("end", resolve)

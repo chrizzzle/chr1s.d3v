@@ -1,7 +1,7 @@
 {
   "name": "slide-menu",
   "version": "1.0.0",
-  "description": "A sliding menu for mobile and desktop using JS and CSS",
+  "description": "A responsive multi-hierarchy sliding off-canvas menu using JS and CSS",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
