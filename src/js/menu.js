@@ -12,6 +12,11 @@ const handleButtonClick = () => {
     .closest(".menu__list-item")
     .querySelector(".menu__list");
 
+    if (!childMenu) {
+      handleToggleClick();
+      return;
+    }
+
   const listShown = document.querySelector(".menu__list--shown");
   listShown && listShown.classList.remove("menu__list--shown");
 

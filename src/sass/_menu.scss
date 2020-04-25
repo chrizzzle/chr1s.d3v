@@ -128,7 +128,7 @@
     left: 0;
     width: 100%;
     background-color: $color-primary;
-    box-shadow: inset 0px -2px 0px 0 #000;
+    box-shadow: inset 0px -2px 0px 0 $color-4;
   }
 
   &__toggle {

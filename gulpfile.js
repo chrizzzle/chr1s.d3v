@@ -6,13 +6,17 @@ const sourcemaps = require("gulp-sourcemaps");
 const babel = require("gulp-babel");
 const postcss = require("gulp-postcss");
 
-const sassGlob = "src/sass/**/*.scss";
-const jsGlob = "src/js/**/*.js";
+const config = {
+  sass: "src/sass/**/*.scss",
+  js: "src/js/**/*.js",
+  html: "src/*.html",
+  dist: "dist/",
+};
 
 gulp.task("css", function () {
   return new Promise(function (resolve, reject) {
     gulp
-      .src(sassGlob)
+      .src(config.sass)
       .pipe(
         sass({
           includePaths: ["node_modules"],
@@ -22,7 +26,7 @@ gulp.task("css", function () {
       .pipe(postcss([require("autoprefixer")]))
       .pipe(cleanCSS())
       .pipe(sourcemaps.write())
-      .pipe(gulp.dest("dist/"))
+      .pipe(gulp.dest(config.dist))
       .on("end", resolve)
       .on("error", (error) => {
         console.error(error);
@@ -34,7 +38,7 @@ gulp.task("css", function () {
 gulp.task("script", function () {
   return new Promise(function (resolve, reject) {
     gulp
-      .src(jsGlob)
+      .src(config.js)
       .pipe(sourcemaps.init())
       .pipe(
         babel({
@@ -42,8 +46,21 @@ gulp.task("script", function () {
         })
       )
       .pipe(uglify())
-      .pipe(sourcemaps.write('.'))
-      .pipe(gulp.dest("dist/"))
+      .pipe(sourcemaps.write("."))
+      .pipe(gulp.dest(config.dist))
+      .on("end", resolve)
+      .on("error", (error) => {
+        console.error(error);
+        reject();
+      });
+  });
+});
+
+gulp.task("html", function () {
+  return new Promise(function (resolve, reject) {
+    gulp
+      .src(config.html)
+      .pipe(gulp.dest(config.dist))
       .on("end", resolve)
       .on("error", (error) => {
         console.error(error);
@@ -54,10 +71,11 @@ gulp.task("script", function () {
 
 //Watch task
 gulp.task("default", function () {
-  gulp.watch(sassGlob, gulp.series("css"));
-  gulp.watch(jsGlob, gulp.series("script"));
+  gulp.watch(config.sass, gulp.series("css"));
+  gulp.watch(config.js, gulp.series("script"));
+  gulp.watch(config.html, gulp.series("html"));
 });
 
 gulp.task("build", (done) => {
-  gulp.parallel("css", "script")(done);
+  gulp.parallel("css", "script", "html")(done);
 });
