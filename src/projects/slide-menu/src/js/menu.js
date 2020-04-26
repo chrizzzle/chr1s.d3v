@@ -6,51 +6,41 @@ const offCanvas = document.querySelector(".slide");
 const rootMenuLevel = document.querySelector(".menu__list--root");
 const title = document.querySelector(".slide__title");
 let level = 0;
+let shownMenu;
 
 const handleButtonClick = () => {
   const childMenu = event.currentTarget.parentElement
     .closest(".menu__list-item")
     .querySelector(".menu__list");
 
-    if (!childMenu) {
-      handleToggleClick();
-      return;
-    }
-
-  const listShown = document.querySelector(".menu__list--shown");
-  listShown && listShown.classList.remove("menu__list--shown");
+  if (!childMenu) {
+    handleToggleClick();
+    return;
+  }
 
   level++;
-
   childMenu.classList.remove("menu__list--hidden");
-  childMenu.classList.add("menu__list--shown");
-
   backButton.classList.remove("slide__back--hidden");
-
-  rootMenuLevel.style.transform = "translate(" + level * -100 + "%, 0)";
+  rootMenuLevel.style.transform = `translate(${level * -100}%, 0)`;
+  shownMenu = childMenu;
 };
 
 const handleBackClick = () => {
-  const currentMenu = document.querySelector(".menu__list--shown");
-  const parentMenu = currentMenu.parentElement.closest(".menu__list");
+  const parentMenu = shownMenu.parentElement.closest(".menu__list");
   const hideAfterTransition = () => {
-    if (level === 0) {
+    if (level <= 0) {
       backButton.classList.add("slide__back--hidden");
     }
-    currentMenu.classList.add("menu__list--hidden");
-    currentMenu.classList.remove("menu__list--shown");
+    shownMenu.classList.add("menu__list--hidden");
 
     rootMenuLevel.removeEventListener("transitionend", hideAfterTransition);
+    shownMenu = parentMenu;
   };
 
   level = level > 0 ? level - 1 : level;
-
   rootMenuLevel.addEventListener("transitionend", hideAfterTransition);
-
   parentMenu.classList.remove("menu__list--hidden");
-  parentMenu.classList.add("menu__list--shown");
-
-  rootMenuLevel.style.transform = "translate(" + level * -100 + "%, 0)";
+  rootMenuLevel.style.transform = `translate(${level * -100}%, 0)`;
 };
 
 const handleToggleClick = () => {
