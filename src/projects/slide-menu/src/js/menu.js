@@ -5,6 +5,7 @@ const toggleButtonIcon = document.querySelector(".slide__toggle-icon");
 const offCanvas = document.querySelector(".slide");
 const rootMenuLevel = document.querySelector(".menu__list--root");
 const title = document.querySelector(".slide__title");
+const body = document.querySelector(".body");
 let level = 0;
 let shownMenu;
 
@@ -48,11 +49,13 @@ const handleToggleClick = () => {
     offCanvas.classList.remove("slide--open");
     toggleButtonIcon.innerHTML = "menu";
     toggleButton.setAttribute("aria-expanded", false);
+    body.classList.remove("body--fixed");
     return;
   }
   offCanvas.classList.add("slide--open");
   toggleButtonIcon.innerHTML = "menu_open";
   toggleButton.setAttribute("aria-expanded", true);
+  body.classList.add("body--fixed");
 };
 
 menuButtons.forEach((menuButton) => {

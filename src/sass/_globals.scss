@@ -3,8 +3,12 @@ body {
     height: 100%;
 }
 
-body {
+.body {
     font-family: "Lato", sans-serif;
+
+    &--fixed {
+        position: fixed;
+    }
 }
 
 * {
