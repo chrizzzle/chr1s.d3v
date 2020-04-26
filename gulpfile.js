@@ -5,18 +5,20 @@ const cleanCSS = require("gulp-clean-css");
 const sourcemaps = require("gulp-sourcemaps");
 const babel = require("gulp-babel");
 const postcss = require("gulp-postcss");
+const flatten = require('gulp-flatten');
+
 
 const config = {
-  sass: "src/sass/**/*.scss",
-  js: "src/js/**/*.js",
-  html: "src/*.html",
+  sass: "src/**/*.scss",
+  js: "src/**/*.js",
+  html: "src/**/*.html",
   dist: "dist/",
 };
 
 gulp.task("css", function () {
   return new Promise(function (resolve, reject) {
     gulp
-      .src(config.sass)
+      .src("src/sass/styles.scss")
       .pipe(
         sass({
           includePaths: ["node_modules"],
@@ -26,7 +28,7 @@ gulp.task("css", function () {
       .pipe(postcss([require("autoprefixer")]))
       .pipe(cleanCSS())
       .pipe(sourcemaps.write())
-      .pipe(gulp.dest(config.dist))
+      .pipe(gulp.dest(config.dist + "css"))
       .on("end", resolve)
       .on("error", (error) => {
         console.error(error);
@@ -47,7 +49,8 @@ gulp.task("script", function () {
       )
       .pipe(uglify())
       .pipe(sourcemaps.write("."))
-      .pipe(gulp.dest(config.dist))
+      .pipe(flatten())
+      .pipe(gulp.dest(config.dist + "js"))
       .on("end", resolve)
       .on("error", (error) => {
         console.error(error);
@@ -60,6 +63,7 @@ gulp.task("html", function () {
   return new Promise(function (resolve, reject) {
     gulp
       .src(config.html)
+      .pipe(flatten())
       .pipe(gulp.dest(config.dist))
       .on("end", resolve)
       .on("error", (error) => {
