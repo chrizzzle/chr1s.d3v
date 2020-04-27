@@ -12,6 +12,7 @@ const config = {
   sass: "src/**/*.scss",
   js: "src/**/*.js",
   html: "src/**/*.html",
+  assets: "img/**/*.*",
   dist: "dist/",
 };
 
@@ -73,13 +74,27 @@ gulp.task("html", function () {
   });
 });
 
+gulp.task("assets", function () {
+  return new Promise(function (resolve, reject) {
+    gulp
+      .src(config.assets)
+      .pipe(gulp.dest(config.dist + "/img"))
+      .on("end", resolve)
+      .on("error", (error) => {
+        console.error(error);
+        reject();
+      });
+  });
+});
+
 //Watch task
 gulp.task("default", function () {
   gulp.watch(config.sass, gulp.series("css"));
   gulp.watch(config.js, gulp.series("script"));
   gulp.watch(config.html, gulp.series("html"));
+  gulp.watch(config.assets, gulp.series("assets"));
 });
 
 gulp.task("build", (done) => {
-  gulp.parallel("css", "script", "html")(done);
+  gulp.parallel("css", "script", "html", "assets")(done);
 });

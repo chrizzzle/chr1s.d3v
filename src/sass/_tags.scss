@@ -1,0 +1,45 @@
+.tag-area {
+    display: flex;
+    flex-wrap: wrap;
+
+    &__tag {
+        position: relative;
+        background-color: $color-secondary;
+        color: white;
+        padding-top: 3px;
+        padding-bottom: 3px;
+        padding-left: 15px;
+        padding-right: 5px;
+        border-radius: 5px;
+        margin: 2px;
+        text-transform: lowercase;
+    
+        &:before {
+            content: "#";
+            color: rgba(255,255,255,.2);
+            position: absolute;
+            left: 3px;
+            right: auto;
+            margin: auto;
+            font-size: 2.1rem;
+            line-height: 1.4rem;
+            top: 0;
+        }
+    }
+}
+
+.social-area {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+
+    &__link {
+        display: block;
+        width: 50px;
+        margin: 5px;
+    }
+
+    &__img {
+        width: 100%; 
+    }
+}
