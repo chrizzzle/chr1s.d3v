@@ -28,6 +28,7 @@ body {
 
 .hero {
   display: flex;
+  flex-wrap: wrap;
   background-color: $color-tertiary;
   align-items: center;
   justify-content: center;
