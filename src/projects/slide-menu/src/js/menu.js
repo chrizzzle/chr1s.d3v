@@ -9,7 +9,7 @@ const body = document.querySelector(".body");
 let level = 0;
 let shownMenu;
 
-const handleButtonClick = () => {
+const handleButtonClick = (event) => {
   const childMenu = event.currentTarget.parentElement
     .closest(".menu__list-item")
     .querySelector(".menu__list");

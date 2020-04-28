@@ -6,11 +6,13 @@ const sourcemaps = require("gulp-sourcemaps");
 const babel = require("gulp-babel");
 const postcss = require("gulp-postcss");
 const flatten = require('gulp-flatten');
+const concat = require('gulp-concat');
+const autoPrefixer = require("autoprefixer");
 
 
 const config = {
   sass: "src/**/*.scss",
-  js: "src/**/*.js",
+  js: "src/projects/**/*.js",
   html: "src/**/*.html",
   assets: "img/**/*.*",
   dist: "dist/",
@@ -26,7 +28,7 @@ gulp.task("css", function () {
         })
       )
       .pipe(sourcemaps.init())
-      .pipe(postcss([require("autoprefixer")]))
+      .pipe(postcss([autoPrefixer()]))
       .pipe(cleanCSS())
       .pipe(sourcemaps.write())
       .pipe(gulp.dest(config.dist + "css"))
@@ -38,18 +40,36 @@ gulp.task("css", function () {
   });
 });
 
+gulp.task("script-base", function () {
+    return new Promise(function (resolve, reject) {
+        gulp
+            .src(["src/js/polyfills.js"])
+            .pipe(concat("base.js"))
+            .pipe(uglify())
+            .pipe(flatten())
+            .pipe(gulp.dest(config.dist + "js"))
+            .on("end", resolve)
+            .on("error", (error) => {
+                console.error(error);
+                reject();
+            });
+    });
+});
+
 gulp.task("script", function () {
   return new Promise(function (resolve, reject) {
     gulp
-      .src(config.js)
-      .pipe(sourcemaps.init())
+      .src([
+          config.js
+      ])
+      //.pipe(sourcemaps.init())
       .pipe(
         babel({
           presets: ["@babel/env"],
         })
       )
       .pipe(uglify())
-      .pipe(sourcemaps.write("."))
+      //.pipe(sourcemaps.write("."))
       .pipe(flatten())
       .pipe(gulp.dest(config.dist + "js"))
       .on("end", resolve)
@@ -96,5 +116,5 @@ gulp.task("default", function () {
 });
 
 gulp.task("build", (done) => {
-  gulp.parallel("css", "script", "html", "assets")(done);
+  gulp.parallel("script-base", "css", "script", "html", "assets")(done);
 });
