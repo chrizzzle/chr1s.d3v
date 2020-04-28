@@ -1,0 +1,31 @@
+.snake {
+  background-color: black;
+}
+
+.field {
+  border: 1px solid #ccc;
+  position: relative;
+  flex: 1;
+
+  &__inner{
+    padding-bottom: 100%;
+    position: relative;
+  }
+}
+
+.apple {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+.row {
+  display: flex;
+  flex-wrap: nowrap;
+}
+
+.map {
+  max-width: 500px;
+  margin: 0 auto;
+}

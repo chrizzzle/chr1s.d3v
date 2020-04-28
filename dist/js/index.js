@@ -1,1 +1,1 @@
-"use strict";var mapDom=document.querySelector(".map"),map=new Map(49);map.render(mapDom);var snake=new Snake(3,map,[24,24]);
+"use strict";var mapDom=document.querySelector(".map"),map=new Map(15);map.render(mapDom),map.placeApple();var snake=new Snake(3,map,[10,10]);

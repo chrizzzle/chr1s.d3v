@@ -43,10 +43,15 @@ body {
 
   &__text {
     color: white;
+    margin-top: 15px;
+    margin-bottom: 0;
   }
 
   &__subtitle {
     font-size: 1.3rem;
+    margin-top: 0;
+    color: white;
+    padding-left: 5px;
   }
 
   &__heart {
