@@ -31,6 +31,8 @@ body {
   background-color: $color-tertiary;
   align-items: center;
   justify-content: center;
+  padding-left: 40px;
+  padding-right: 40px;
 
   &__image {
     max-width: 150px;
@@ -124,9 +126,10 @@ ul {
 
   li {
     padding-left: 40px;
-    background-image: url("../img/mario/star.svg");
-    background-position: 10px center;
+    background-image: url(../img/mario/star.svg);
+    background-position: 10px top;
     background-repeat: no-repeat;
+    background-size: 20px;
   }
 }
 
