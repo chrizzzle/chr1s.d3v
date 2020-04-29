@@ -12,7 +12,7 @@ class Snake {
         };
         this._direction = this._directions.UP;
         this.calcInitialSnakeFields();
-        this._interval = window.setInterval(this.step.bind(this), 1000);
+        this._interval = window.setInterval(this.step.bind(this), 100);
 
         document.addEventListener("keydown", this.changeDirection.bind(this))
     }
@@ -22,7 +22,7 @@ class Snake {
             return;
         }
 
-        const key = event.key || event.keyCode;
+        const key = event.key;
         switch (key.toUpperCase()) {
             case "W":
                 if (this._direction !== this._directions.DOWN && this._direction !== this._directions.UP) {
