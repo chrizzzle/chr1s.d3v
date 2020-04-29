@@ -1,9 +1,28 @@
 .snake {
-  background-color: black;
+  background-color: $color-primary;
+
+
+  &--first {
+    &.snake--up {
+      border-top-right-radius: 100%;
+      border-top-left-radius: 100%;
+    }
+    &.snake--down {
+      border-bottom-left-radius: 100%;
+      border-bottom-right-radius: 100%;
+    }
+    &.snake--right {
+      border-top-right-radius: 100%;
+      border-bottom-right-radius: 100%;
+    }
+    &.snake--left {
+      border-top-left-radius: 100%;
+      border-bottom-left-radius: 100%;
+    }
+  }
 }
 
 .field {
-  border: 1px solid #ccc;
   position: relative;
   flex: 1;
 

@@ -33,10 +33,6 @@ class Map {
         this.renderApple(y, x);
     }
 
-    removeApple() {
-
-    }
-
     renderApple(y, x) {
         const existing = document.querySelector(".apple");
         if (existing) {
@@ -46,7 +42,6 @@ class Map {
         appleDom.setAttribute("src", "img/mario/apple.svg");
         appleDom.classList.add("apple");
         document.querySelector(`.field-${y}-${x}`).appendChild(appleDom);
-        console.log(`.field-${y}-${x}`);
     }
 
     render(element) {

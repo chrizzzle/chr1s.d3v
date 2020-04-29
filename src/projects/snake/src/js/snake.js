@@ -12,7 +12,7 @@ class Snake {
         };
         this._direction = this._directions.UP;
         this.calcInitialSnakeFields();
-        this._interval = window.setInterval(this.step.bind(this), 100);
+        this._interval = window.setInterval(this.step.bind(this), 1000);
 
         document.addEventListener("keydown", this.changeDirection.bind(this))
     }
@@ -128,16 +128,41 @@ class Snake {
     }
 
     renderSnake() {
+        let snakeDomField, lastField;
         if (this._lastField) {
-            document.querySelector(
+            lastField = document.querySelector(
                 `.field-${this._lastField[0]}-${this._lastField[1]}`
-            ).classList.remove("snake");
+            );
+            lastField.classList.remove("snake");
+            lastField.classList.remove("snake--first");
+            lastField.classList.remove("snake--last");
+            lastField.classList.remove("snake--up");
+            lastField.classList.remove("snake--down");
+            lastField.classList.remove("snake--left");
+            lastField.classList.remove("snake--right");
         }
 
         for (let i = 0; i < this._snakeFields.length; i++) {
-            document.querySelector(
+            snakeDomField = document.querySelector(
                 `.field-${this._snakeFields[i][0]}-${this._snakeFields[i][1]}`
-            ).classList.add("snake");
+            );
+            snakeDomField.classList.add("snake");
+
+            snakeDomField.classList.remove("snake--first");
+            snakeDomField.classList.remove("snake--last");
+            snakeDomField.classList.remove("snake--up");
+            snakeDomField.classList.remove("snake--down");
+            snakeDomField.classList.remove("snake--left");
+            snakeDomField.classList.remove("snake--right");
+
+            if (i === 0) {
+                snakeDomField.classList.add(`snake--first`);
+                snakeDomField.classList.add(`snake--${this._direction.toLowerCase()}`);
+            }
+            if (i === this._snakeFields.length -1) {
+                snakeDomField.classList.add(`snake--last`);
+                snakeDomField.classList.add(`snake--${this._direction.toLowerCase()}`);
+            }
         }
 
         this._directionChanged = false;
