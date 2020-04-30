@@ -3,6 +3,7 @@
 
 
   &--first {
+    background-color: darken($color-primary, 50);
     &.snake--up {
       border-top-right-radius: 100%;
       border-top-left-radius: 100%;

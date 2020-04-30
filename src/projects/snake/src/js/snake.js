@@ -104,7 +104,7 @@ class Snake {
     checkIfApple() {
         if (this._map.getFields()[this._headField[0]][this._headField[1]] === "2") {
             this.addSnakeField();
-            this._map.placeApple();
+            this._map.placeApple(this._snakeFields);
         }
     }
 
