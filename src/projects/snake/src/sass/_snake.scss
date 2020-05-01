@@ -3,26 +3,73 @@
 
 
   &--first {
-    background-color: darken($color-primary, 50);
+
+    &:before,
+    &:after {
+      content: ".";
+      position: absolute;
+      font-size: 20px;
+      line-height: 0;
+    }
 
     &.snake--up {
       border-top-right-radius: 100%;
       border-top-left-radius: 100%;
+
+      &:before {
+        right: 20%;
+        top: 20%;
+      }
+
+      &:after {
+        left: 20%;
+        top: 20%;
+      }
     }
 
     &.snake--down {
       border-bottom-left-radius: 100%;
       border-bottom-right-radius: 100%;
+
+      &:before {
+        right: 20%;
+        bottom: 40%;
+      }
+
+      &:after {
+        left: 20%;
+        bottom: 40%;
+      }
     }
 
     &.snake--right {
       border-top-right-radius: 100%;
       border-bottom-right-radius: 100%;
+
+      &:before {
+        right: 20%;
+        top: 20%;
+      }
+
+      &:after {
+        right: 20%;
+        bottom: 40%;
+      }
     }
 
     &.snake--left {
       border-top-left-radius: 100%;
       border-bottom-left-radius: 100%;
+
+      &:before {
+        left: 20%;
+        top: 20%;
+      }
+
+      &:after {
+        left: 20%;
+        bottom: 40%;
+      }
     }
   }
 }
@@ -87,6 +134,19 @@
 
   &--hidden {
     display: none;
+  }
+
+  &__fire {
+    width: 50px;
+    height: 50px;
+    margin: 0 15px;
+    padding: 10px 5px;
+  }
+
+  &__text {
+    background-color: $color-primary;
+    color: white;
+    padding: 10px 5px;
   }
 }
 

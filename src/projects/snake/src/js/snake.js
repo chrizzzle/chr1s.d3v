@@ -30,7 +30,8 @@ class Snake {
     }
 
     handleClick(coordinates) {
-        const elementCoordinates = document.querySelector(".snake--first").getBoundingClientRect();
+        const element = document.querySelector(".snake--first");
+        const elementCoordinates = element && element.getBoundingClientRect();
         switch(this._direction) {
             case this._directions.UP:
             case this._directions.DOWN:

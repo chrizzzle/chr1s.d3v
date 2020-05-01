@@ -20,7 +20,8 @@ class Game {
         document.addEventListener("snake:dead", this.gameOver.bind(this));
         document.addEventListener("snake:apple", this.foundApple.bind(this));
         document.addEventListener("keydown", this.changeDirection.bind(this));
-        this._mapElement.addEventListener("click", this.handleClick.bind(this));
+
+        this.clickHandler = this.handleClick.bind(this);
     }
     handleClick(e) {
         const x = e.clientX;
@@ -30,11 +31,15 @@ class Game {
     changeDirection(e) {
         this._snake.changeDirection(e);
     }
-    start() {
+    reset() {
+        this._mapElement.removeEventListener("click", this.clickHandler);
         this._score = 0;
         this.renderScore();
         this.hideGameOver();
         this._snake.reset();
+    }
+    start() {
+        this._mapElement.addEventListener("click", this.clickHandler);
         this._snake.startMove();
     }
     gameOver() {
