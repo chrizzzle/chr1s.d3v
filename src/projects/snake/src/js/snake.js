@@ -31,7 +31,9 @@ class Snake {
 
     handleClick(coordinates) {
         const element = document.querySelector(".snake--first");
-        const elementCoordinates = element && element.getBoundingClientRect();
+
+        if (!element) { return; }
+        const elementCoordinates = element.getBoundingClientRect();
         switch(this._direction) {
             case this._directions.UP:
             case this._directions.DOWN:
@@ -44,7 +46,7 @@ class Snake {
 
             case this._directions.RIGHT:
             case this._directions.LEFT:
-                if (elementCoordinates.x > coordinates[1]) {
+                if (elementCoordinates.y > coordinates[1]) {
                     this.changeDirection({ key: "W" });
                 } else {
                     this.changeDirection({ key: "S" });

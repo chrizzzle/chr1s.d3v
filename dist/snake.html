@@ -1,76 +1,75 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
+<head>
+    <meta charset="utf-8"/>
     <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+            name="viewport"
+            content="width=device-width, initial-scale=1, shrink-to-fit=no"
     />
 
     <title>
-      Simple snake game - chr1s.d3v
+        Simple snake game - chr1s.d3v
     </title>
-    <link rel="stylesheet" href="css/styles.css" />
+    <link rel="stylesheet" href="css/styles.css"/>
     <link
-      href="https://fonts.googleapis.com/css2?family=Ubuntu+Mono:ital,wght@0,400;0,700;1,400&display=swap"
-      rel="stylesheet"
+            href="https://fonts.googleapis.com/css2?family=Ubuntu+Mono:ital,wght@0,400;0,700;1,400&display=swap"
+            rel="stylesheet"
     />
     <link rel="icon" type="image/svg+xml" href="img/mario/heart.svg" sizes="any">
 
-  </head>
+</head>
 
-  <body class="body">
-  <img src="img/arrow.svg" alt="Arrow" class="arrow" />
-
-  <section class="hero">
+<body class="body">
+<section class="hero">
     <img src="img/mario/banana.svg" alt="" class="hero__image"/>
     <div>
-      <h1 class="hero__text">
-        <a href="index.html" class="hero__link">
-          <span>chr1s</span><img src="img/mario/heart.svg" class="hero__heart" alt="heart"/><span>d3v</span>
-        </a>
-        <br>
-      </h1>
-      <h2 class="hero__subtitle">Snake game (object-oriented style)</h2>
+        <h1 class="hero__text">
+            <a href="index.html" class="hero__link">
+                <span>chr1s</span><img src="img/mario/heart.svg" class="hero__heart" alt="heart"/><span>d3v</span>
+            </a>
+            <br>
+        </h1>
+        <h2 class="hero__subtitle">Simple Snake (object-oriented style)</h2>
     </div>
-  </section>
+</section>
 
-    <section class="content">
-      <h2>Demo</h2>
+<section class="content">
+    <h2>Demo</h2>
 
-      <div class="map">
-
+    <div class="map">
         <div class="game-over game-over--hidden">
-          <img src="img/mario/fire.svg" alt="Game Over Fire" class="game-over__fire"><br>
-          <div class="game-over__text">GAME OVER</div>
-          <img src="img/mario/fire.svg" alt="Game Over Fire" class="game-over__fire"><br>
+            <img src="img/mario/skull.svg" alt="Game Over Fire" class="game-over__fire"><br>
+            <div class="game-over__text">GAME OVER</div>
+            <img src="img/mario/skull.svg" alt="Game Over Fire" class="game-over__fire"><br>
         </div>
+
         <div class="score"><span class="score__score"></span> / <span class="score__highscore"></span></div>
-        <button class="start">Start</button>
-      </div>
+        <div class="start">
+            <p class="start__text">
+                On the keyboard, control the snake with W,A,S,D keys.<br>
+                On mobile, just tap left, right, over, under the snake to change direction.
+            </p>
+        </div>
+        <button class="start-button start-button--initial">Start</button>
+    </div>
 
 
-      <h2>Tags</h2>
-      <div class="tag-area">
-        <div class="tag-area__tag">vertical_scrolling</div>
-        <div class="tag-area__tag">horizontal_sliding</div>
+    <h2>Tags</h2>
+    <div class="tag-area">
+        <div class="tag-area__tag">object_oriented</div>
         <div class="tag-area__tag">HTML5</div>
         <div class="tag-area__tag">JavaScript</div>
         <div class="tag-area__tag">CSS</div>
-        <div class="tag-area__tag">Flexbox</div>
         <div class="tag-area__tag">Vanilla_JS</div>
         <div class="tag-area__tag">ES6</div>
         <div class="tag-area__tag">SASS</div>
         <div class="tag-area__tag">BEM</div>
         <div class="tag-area__tag">responsive</div>
-        <div class="tag-area__tag">multi_level</div>
-        <div class="tag-area__tag">hierarchical</div>
         <div class="tag-area__tag">open_source</div>
-        <div class="tag-area__tag">material_design_icons</div>
-      </div>
+    </div>
 
-      <h2>Setup</h2>
-      <div class="tag-area">
+    <h2>Setup</h2>
+    <div class="tag-area">
         <div class="tag-area__tag tag-area__tag--tech">gulp</div>
         <div class="tag-area__tag tag-area__tag--tech">gulp-sass</div>
         <div class="tag-area__tag tag-area__tag--tech">gulp-babel</div>
@@ -79,27 +78,27 @@
         <div class="tag-area__tag tag-area__tag--tech">gulp-postcss</div>
         <div class="tag-area__tag tag-area__tag--tech">gulp-sourcemaps</div>
         <div class="tag-area__tag tag-area__tag--tech">normalize.css</div>
-      </div>
+    </div>
 
-      <h2>Social</h2>
-      <div class="social-area">
+    <h2>Social</h2>
+    <div class="social-area">
         <a class="social-area__link" target="_blank" href="https://www.instagram.com/chr1s.d3v">
-          <img class="social-area__img" src="img/instagram.svg" alt="Instagram">
+            <img class="social-area__img" src="img/instagram.svg" alt="Instagram">
         </a>
         <a class="social-area__link" target="_blank" href="https://github.com/chrizzzle/chr1s.d3v">
-          <img class="social-area__img" src="img/github.svg" alt="GitHub">
+            <img class="social-area__img" src="img/github.svg" alt="GitHub">
         </a>
         <a class="social-area__link" target="_blank" href="https://twitter.com/chrizle">
-          <img class="social-area__img" src="img/twitter.svg" alt="Twitter">
+            <img class="social-area__img" src="img/twitter.svg" alt="Twitter">
         </a>
-      </div>
-    </section>
+    </div>
+</section>
 
 
-    <script type="text/javascript" src="js/base.js"></script>
-    <script type="text/javascript" src="js/snake-map.js"></script>
-    <script type="text/javascript" src="js/snake.js"></script>
-    <script type="text/javascript" src="js/game.js"></script>
-    <script type="text/javascript" src="js/index.js"></script>
-  </body>
+<script type="text/javascript" src="js/base.js"></script>
+<script type="text/javascript" src="js/snake-map.js"></script>
+<script type="text/javascript" src="js/snake.js"></script>
+<script type="text/javascript" src="js/game.js"></script>
+<script type="text/javascript" src="js/index.js"></script>
+</body>
 </html>

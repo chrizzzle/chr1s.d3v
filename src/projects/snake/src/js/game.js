@@ -3,13 +3,15 @@ class Game {
         mapElement,
         scoreElement,
         highScoreElement,
-        gameOverElement
+        gameOverElement,
+        startElement
     ) {
         this._score = 0;
         this._scoreElement = scoreElement;
         this._highscoreElement = highScoreElement;
         this._mapElement = mapElement;
         this._gameOverElement = gameOverElement;
+        this._startElement = startElement;
 
         this._map = new SnakeMap(15);
         this._map.render(this._mapElement);
@@ -38,8 +40,12 @@ class Game {
         this.hideGameOver();
         this._snake.reset();
     }
+    hideStartElement() {
+        this._startElement.classList.add("start--hidden");
+    }
     start() {
         this._mapElement.addEventListener("click", this.clickHandler);
+        this.hideStartElement();
         this._snake.startMove();
     }
     gameOver() {

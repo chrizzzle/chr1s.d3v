@@ -1,75 +1,38 @@
+@keyframes go {
+  from {opacity: .1;}
+  to {opacity: 1;}
+}
+
+@keyframes snakeColor {
+  0%   {background-color: $color-primary;}
+  50%  {background-color: $color-secondary;}
+  100%  {background-color: $color-tertiary;}
+}
+
 .snake {
   background-color: $color-primary;
+  animation: snakeColor 1s infinite;
 
 
   &--first {
-
-    &:before,
-    &:after {
-      content: ".";
-      position: absolute;
-      font-size: 20px;
-      line-height: 0;
-    }
-
     &.snake--up {
       border-top-right-radius: 100%;
       border-top-left-radius: 100%;
-
-      &:before {
-        right: 20%;
-        top: 20%;
-      }
-
-      &:after {
-        left: 20%;
-        top: 20%;
-      }
     }
 
     &.snake--down {
       border-bottom-left-radius: 100%;
       border-bottom-right-radius: 100%;
-
-      &:before {
-        right: 20%;
-        bottom: 40%;
-      }
-
-      &:after {
-        left: 20%;
-        bottom: 40%;
-      }
     }
 
     &.snake--right {
       border-top-right-radius: 100%;
       border-bottom-right-radius: 100%;
-
-      &:before {
-        right: 20%;
-        top: 20%;
-      }
-
-      &:after {
-        right: 20%;
-        bottom: 40%;
-      }
     }
 
     &.snake--left {
       border-top-left-radius: 100%;
       border-bottom-left-radius: 100%;
-
-      &:before {
-        left: 20%;
-        top: 20%;
-      }
-
-      &:after {
-        left: 20%;
-        bottom: 40%;
-      }
     }
   }
 }
@@ -104,10 +67,7 @@
   position: relative;
 }
 
-@keyframes go {
-  from {opacity: 0;}
-  to {opacity: 1;}
-}
+
 
 .game-over {
   position: absolute;
@@ -116,21 +76,15 @@
   right: 0;
   bottom: 0;
   margin: auto;
-  -webkit-animation-name: go;
-  animation-name: go;
-  -webkit-animation-duration: .3s;
-  animation-duration: .3s;
-  -webkit-animation-iteration-count: infinite;
-  animation-iteration-count: infinite;
   font-weight: 700;
   font-size: 2rem;
   line-height: 1rem;
-  height: 200px;
   text-align: center;
   display: flex;
   align-items: center;
   justify-content: center;
   z-index: 1;
+  background-color: rgba(0,0,0,0.8);
 
   &--hidden {
     display: none;
@@ -144,9 +98,14 @@
   }
 
   &__text {
-    background-color: $color-primary;
-    color: white;
     padding: 10px 5px;
+    -webkit-animation-name: go;
+    animation-name: go;
+    -webkit-animation-duration: .8s;
+    animation-duration: .8s;
+    -webkit-animation-iteration-count: infinite;
+    animation-iteration-count: infinite;
+    color: $color-tertiary;
   }
 }
 
@@ -154,4 +113,40 @@
   position: absolute;
   right: 0;
   top: 0;
+}
+
+.start {
+  background-color: rgba(0,0,0,0.8);
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 0;
+  z-index: 1;
+
+  &__text {
+    color: white;
+    padding: 1%;
+  }
+
+  &--hidden {
+    display: none;
+  }
+}
+
+.start-button {
+  position: absolute;
+  left: 0;
+  top: 0;
+  transform: translateY(-100%);
+  margin: auto;
+  height: 50px;
+  z-index: 2;
+  transition: all 200ms;
+
+  &--initial {
+    right: 0;
+    bottom: 0;
+    transform: translateY(0);
+  }
 }
