@@ -1,18 +1,34 @@
 class Game {
-    constructor() {
+    constructor(
+        mapElement,
+        scoreElement,
+        highScoreElement,
+        gameOverElement
+    ) {
         this._score = 0;
-        this._scoreElement = document.querySelector(".score__score");
-        this._highscoreElement = document.querySelector(".score__highscore");
-        this._mapElement = document.querySelector(".map");
-        this._gameOverElement = document.querySelector(".game-over");
-        document.addEventListener("snake:dead", this.gameOver.bind(this));
-        document.addEventListener("snake:apple", this.foundApple.bind(this));
+        this._scoreElement = scoreElement;
+        this._highscoreElement = highScoreElement;
+        this._mapElement = mapElement;
+        this._gameOverElement = gameOverElement;
 
-        this._map = new Map(15);
+        this._map = new SnakeMap(15);
         this._map.render(this._mapElement);
         this._map.placeApple();
         this._snake = new Snake(3, this._map, [10, 10]);
         this.renderScore();
+
+        document.addEventListener("snake:dead", this.gameOver.bind(this));
+        document.addEventListener("snake:apple", this.foundApple.bind(this));
+        document.addEventListener("keydown", this.changeDirection.bind(this));
+        this._mapElement.addEventListener("click", this.handleClick.bind(this));
+    }
+    handleClick(e) {
+        const x = e.clientX;
+        const y = e.clientY;
+        this._snake.handleClick([x, y]);
+    }
+    changeDirection(e) {
+        this._snake.changeDirection(e);
     }
     start() {
         this._score = 0;

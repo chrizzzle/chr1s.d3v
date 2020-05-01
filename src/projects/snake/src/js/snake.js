@@ -13,8 +13,6 @@ class Snake {
         };
         this._direction = this._directions.RIGHT;
         this.calcInitialSnakeFields();
-
-        document.addEventListener("keydown", this.changeDirection.bind(this))
     }
 
     reset() {
@@ -29,6 +27,29 @@ class Snake {
 
     startMove() {
         this._interval = window.setInterval(this.step.bind(this), 100);
+    }
+
+    handleClick(coordinates) {
+        const elementCoordinates = document.querySelector(".snake--first").getBoundingClientRect();
+        switch(this._direction) {
+            case this._directions.UP:
+            case this._directions.DOWN:
+                if (elementCoordinates.x > coordinates[0]) {
+                    this.changeDirection({ key: "A" });
+                } else {
+                    this.changeDirection({ key: "D" });
+                }
+                return;
+
+            case this._directions.RIGHT:
+            case this._directions.LEFT:
+                if (elementCoordinates.x > coordinates[1]) {
+                    this.changeDirection({ key: "W" });
+                } else {
+                    this.changeDirection({ key: "S" });
+                }
+                return;
+        }
     }
 
     getFields() {

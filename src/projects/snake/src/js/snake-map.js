@@ -1,4 +1,4 @@
-class Map {
+class SnakeMap {
     constructor(size) {
         this._size = size;
         this._fields = [];
