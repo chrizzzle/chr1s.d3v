@@ -23,6 +23,10 @@ class Map {
         }
     }
 
+    isAppleField(field) {
+        return this.getFields()[field[0]][field[1]] === "2";
+    }
+
     placeApple(snakeFields) {
         let snakeField, x, y;
         snakeFields = snakeFields || [];
@@ -40,9 +44,9 @@ class Map {
                 if (this._fields[i][j] !== this._fieldTypes.blocked) {
                     allowedFields.push([i, j]);
                 }
-            }   
+            }
         }
-        
+
         const rnd = Math.round(Math.random() * (allowedFields.length-1));
         const rndField = allowedFields[rnd];
         this.generateMap();

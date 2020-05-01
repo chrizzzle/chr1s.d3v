@@ -4,18 +4,22 @@
 
   &--first {
     background-color: darken($color-primary, 50);
+
     &.snake--up {
       border-top-right-radius: 100%;
       border-top-left-radius: 100%;
     }
+
     &.snake--down {
       border-bottom-left-radius: 100%;
       border-bottom-right-radius: 100%;
     }
+
     &.snake--right {
       border-top-right-radius: 100%;
       border-bottom-right-radius: 100%;
     }
+
     &.snake--left {
       border-top-left-radius: 100%;
       border-bottom-left-radius: 100%;
@@ -27,7 +31,7 @@
   position: relative;
   flex: 1;
 
-  &__inner{
+  &__inner {
     padding-bottom: 100%;
     position: relative;
   }
@@ -40,6 +44,7 @@
   left: 0;
   right: 0;
 }
+
 .row {
   display: flex;
   flex-wrap: nowrap;
@@ -49,4 +54,44 @@
   max-width: 500px;
   margin: 0 auto;
   border: 1px solid black;
+  position: relative;
+}
+
+@keyframes go {
+  from {opacity: 0;}
+  to {opacity: 1;}
+}
+
+.game-over {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  -webkit-animation-name: go;
+  animation-name: go;
+  -webkit-animation-duration: .3s;
+  animation-duration: .3s;
+  -webkit-animation-iteration-count: infinite;
+  animation-iteration-count: infinite;
+  font-weight: 700;
+  font-size: 2rem;
+  line-height: 1rem;
+  height: 200px;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+
+  &--hidden {
+    display: none;
+  }
+}
+
+.score {
+  position: absolute;
+  right: 0;
+  top: 0;
 }

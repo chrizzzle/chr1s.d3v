@@ -153,3 +153,10 @@ a:hover {
   background-color: $color-primary;
   color: white;
 }
+
+button {
+  background-color: $color-primary;
+  border: none;
+  color: white;
+  cursor: pointer;
+}

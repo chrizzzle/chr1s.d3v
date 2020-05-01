@@ -3,6 +3,7 @@ class Snake {
         this._size = size;
         this._map = map;
         this._mapFields = map.getFields();
+        this._originalHeadField = startField;
         this._headField = startField;
         this._directions = {
             UP: "UP",
@@ -10,11 +11,28 @@ class Snake {
             LEFT: "LEFT",
             RIGHT: "RIGHT"
         };
-        this._direction = this._directions.UP;
+        this._direction = this._directions.RIGHT;
         this.calcInitialSnakeFields();
-        this._interval = window.setInterval(this.step.bind(this), 100);
 
         document.addEventListener("keydown", this.changeDirection.bind(this))
+    }
+
+    reset() {
+        if (this._interval) {
+            window.clearInterval(this._interval);
+        }
+        this.destroySnake();
+        this._direction = this._directions.RIGHT;
+        this._headField = this._originalHeadField;
+        this.calcInitialSnakeFields();
+    }
+
+    startMove() {
+        this._interval = window.setInterval(this.step.bind(this), 100);
+    }
+
+    getFields() {
+        return this._snakeFields;
     }
 
     changeDirection(event) {
@@ -90,6 +108,19 @@ class Snake {
                 break;
         }
     }
+    calcNextTailField() {
+        const lastField = this._snakeFields[this._snakeFields.length-1];
+        switch (this._direction) {
+            case this._directions.RIGHT:
+                return this.translateField([lastField[0], lastField[1] - 1]);
+            case this._directions.LEFT:
+                return this.translateField([lastField[0], lastField[1] + 1]);
+            case this._directions.UP:
+                return this.translateField([lastField[0] + 1, lastField[1]]);
+            case this._directions.DOWN:
+                return this.translateField([lastField[0] - 1, lastField[1]]);
+        }
+    }
     checkIfCollision() {
         const found = this._snakeFields.find( (snakeField) => {
             return snakeField[0] === this._headField[0] &&
@@ -97,19 +128,24 @@ class Snake {
         });
 
         if (found) {
-            window.clearInterval(this._interval);
+            document.dispatchEvent(new Event('snake:dead'));
         }
     }
 
+    stop() {
+        window.clearInterval(this._interval);
+    }
+
     checkIfApple() {
-        if (this._map.getFields()[this._headField[0]][this._headField[1]] === "2") {
+        if (this._map.isAppleField(this._headField)) {
             this.addSnakeField();
-            this._map.placeApple(this._snakeFields);
+            document.dispatchEvent(new Event('snake:apple'));
         }
     }
 
     addSnakeField() {
-        this._snakeFields.unshift(this._headField);
+        const nextField = this.calcNextTailField();
+        this._snakeFields.push(nextField);
     }
 
     calcSnakeFields() {
@@ -125,6 +161,20 @@ class Snake {
             this.translateField([this._headField[0], this._headField[1] - 2])
         ];
         this.renderSnake();
+    }
+
+    destroySnake() {
+        const fields = document.querySelectorAll(".snake");
+
+        for (let i = 0; i < fields.length; i++) {
+            fields[i].classList.remove("snake");
+            fields[i].classList.remove("snake--first");
+            fields[i].classList.remove("snake--last");
+            fields[i].classList.remove("snake--up");
+            fields[i].classList.remove("snake--down");
+            fields[i].classList.remove("snake--left");
+            fields[i].classList.remove("snake--right");
+        }
     }
 
     renderSnake() {
