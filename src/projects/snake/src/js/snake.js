@@ -26,7 +26,7 @@ class Snake {
     }
 
     startMove() {
-        this._interval = window.setInterval(this.step.bind(this), 100);
+        this._interval = window.setInterval(this.step.bind(this), 120);
     }
 
     handleClick(coordinates) {

@@ -4,7 +4,8 @@ class Game {
         scoreElement,
         highScoreElement,
         gameOverElement,
-        startElement
+        startElement,
+        startButtonElement
     ) {
         this._score = 0;
         this._scoreElement = scoreElement;
@@ -12,6 +13,7 @@ class Game {
         this._mapElement = mapElement;
         this._gameOverElement = gameOverElement;
         this._startElement = startElement;
+        this._startButtonElement = startButtonElement;
 
         this._map = new SnakeMap(15);
         this._map.render(this._mapElement);
@@ -40,17 +42,17 @@ class Game {
         this.hideGameOver();
         this._snake.reset();
     }
-    hideStartElement() {
-        this._startElement.classList.add("start--hidden");
-    }
+
     start() {
         this._mapElement.addEventListener("click", this.clickHandler);
         this.hideStartElement();
         this._snake.startMove();
+        this.hideStartButton();
     }
     gameOver() {
         this._snake.stop();
         this.renderGameOver();
+        this.showStartButton();
     }
     foundApple() {
         this._map.placeApple(this._snake.getFields());
@@ -71,9 +73,19 @@ class Game {
     hideGameOver() {
         this._gameOverElement.classList.add("game-over--hidden");
     }
+    hideStartButton() {
+        this._startButtonElement.innerHTML = "Restart";
+        this._startButtonElement.classList.add("start-button--hidden");
+    }
+    showStartButton() {
+        this._startButtonElement.classList.remove("start-button--hidden");
+
+    }
     renderHighscore() {
         this._highscoreElement.innerHTML = localStorage.getItem("snake:highscore") || "0";
-
+    }
+    hideStartElement() {
+        this._startElement.classList.add("start--hidden");
     }
     saveHighscore() {
         if (window.localStorage) {

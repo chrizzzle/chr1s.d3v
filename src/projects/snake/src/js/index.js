@@ -4,11 +4,10 @@ const game = new Game(
     document.querySelector(".score__score"),
     document.querySelector(".score__highscore"),
     document.querySelector(".game-over"),
-    document.querySelector(".start")
+    document.querySelector(".start"),
+    document.querySelector(".start-button"),
 );
 document.querySelector(".start-button").addEventListener("click",  (e) => {
-    e.currentTarget.innerHTML = "Restart";
-    e.currentTarget.classList.remove("start-button--initial");
     game.reset();
     game.start();
 });

@@ -65,6 +65,7 @@
   margin: 0 auto;
   border: 1px solid black;
   position: relative;
+  background-color: white;
 }
 
 
@@ -78,7 +79,6 @@
   margin: auto;
   font-weight: 700;
   font-size: 2rem;
-  line-height: 1rem;
   text-align: center;
   display: flex;
   align-items: center;
@@ -137,16 +137,13 @@
 .start-button {
   position: absolute;
   left: 0;
-  top: 0;
-  transform: translateY(-100%);
-  margin: auto;
+  bottom: 10%;
+  right: 0;
   height: 50px;
   z-index: 2;
-  transition: all 200ms;
+  margin: auto;
 
-  &--initial {
-    right: 0;
-    bottom: 0;
-    transform: translateY(0);
+  &--hidden {
+    display: none;
   }
 }
