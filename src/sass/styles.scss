@@ -1,6 +1,8 @@
 @import "normalize.css/normalize";
 @import "vars";
 @import "globals";
+@import "../../node_modules/input-range-scss/inputrange";
 @import "tags";
 @import "../projects/slide-menu/src/sass/menu";
+@import "../projects/house-score/src/sass/house-score";
 @import "../projects/snake/src/sass/snake";

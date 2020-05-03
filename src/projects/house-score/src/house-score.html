@@ -1,0 +1,775 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+
+    <title>
+      House finder - chr1s.d3v
+    </title>
+    <link rel="stylesheet" href="css/styles.css" />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Ubuntu+Mono:ital,wght@0,400;0,700;1,400&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="icon"
+      type="image/svg+xml"
+      href="img/mario/heart.svg"
+      sizes="any"
+    />
+  </head>
+
+  <body class="body">
+    <section class="hero">
+      <img src="img/mario/palm.svg" alt="" class="hero__image" />
+      <div>
+        <h1 class="hero__text">
+          <a href="index.html" class="hero__link">
+            <span>chr1s</span><img src="img/mario/heart.svg" class="hero__heart" alt="heart" /><span>d3v</span>
+          </a>
+          <br />
+        </h1>
+        <h2 class="hero__subtitle">
+          House Finder
+        </h2>
+      </div>
+    </section>
+
+    <section class="content">
+      <h2>Demo</h2>
+
+      <form action="" class="form">
+        <div class="form__group">
+          <label for="max-price">Maximum Price (€):</label>
+          <input type="number" id="max-price" class="form__input" />
+        </div>
+
+        <div class="form__group">
+          <label for="ideal-space-house">Ideal Space inside House (m²):</label>
+          <input type="number" id="ideal-space-house" class="form__input" />
+        </div>
+
+        <div class="form__group">
+          <label for="ideal-space-property">Ideal Space for Property (m²):</label>
+          <input type="number" id="ideal-space-property" class="form__input" />
+        </div>
+
+
+        <div class="form__group">
+          <label for="price">Total Price (including renovations): <span class="form__result"></span>€</label>
+          <input
+            class="form__range"
+            data-inverse="true"
+            type="range"
+            min="0"
+            max="500000"
+            name="price"
+            id="price"
+            step="100"
+          />
+
+          <div class="form__grading">
+            Grade this attribute:
+            <label>
+              <input
+                class="form__radio"
+                id="grading-price-1"
+                type="radio"
+                name="grading-price"
+                value="1"
+              />
+              Less important
+            </label>
+            <label>
+              <input
+                checked
+                class="form__radio"
+                id="grading-price-2"
+                type="radio"
+                name="grading-price"
+                value="2"
+              />
+              Medium important
+            </label>
+            <label>
+              <input
+                class="form__radio"
+                id="grading-price-3"
+                type="radio"
+                name="grading-price"
+                value="3"
+              />
+              Very important
+            </label>
+          </div>
+        </div>
+
+        <div class="form__group">
+          <label for="space-house">Space of the house (m²): <span class="form__result"></span>m²</label>
+          <input
+            class="form__range"
+            id="space-house"
+            name="space-house"
+            type="range"
+            min="0"
+            max="180"
+          />
+
+          <div class="form__grading">
+            Grade this attribute:
+            <label>
+              <input
+                class="form__radio"
+                id="grading-space-1"
+                type="radio"
+                name="grading-space"
+                value="1"
+              />
+              Less important
+            </label>
+            <label>
+              <input
+                checked
+                class="form__radio"
+                id="grading-space-2"
+                type="radio"
+                name="grading-space"
+                value="2"
+              />
+              Medium important
+            </label>
+            <label>
+              <input
+                class="form__radio"
+                id="grading-space-3"
+                type="radio"
+                name="grading-space"
+                value="3"
+              />
+              Very important
+            </label>
+          </div>
+        </div>
+
+        <div class="form__group">
+          <label for="space-property">Space of the property (m²): <span class="form__result"></span>m²</label>
+          <input
+            class="form__range"
+            id="space-property"
+            name="space-property"
+            type="range"
+            min="0"
+            max="250"
+          />
+
+          <div class="form__grading">
+            Grade this attribute:
+            <label>
+              <input
+                class="form__radio"
+                id="grading-space-property-1"
+                type="radio"
+                name="grading-space-property"
+                value="1"
+              />
+              Less important
+            </label>
+            <label>
+              <input
+                checked
+                class="form__radio"
+                id="grading-space-property-2"
+                type="radio"
+                name="grading-space-property"
+                value="2"
+              />
+              Medium important
+            </label>
+            <label>
+              <input
+                class="form__radio"
+                id="grading-space-property-3"
+                type="radio"
+                name="grading-space-property"
+                value="3"
+              />
+              Very important
+            </label>
+          </div>
+        </div>
+
+        <div class="form__group">
+          <label for="condition">
+            Rate the overall condition of the house (roof, heating, floors,
+            mold, 0-10): <span class="form__result"></span>
+          </label>
+          <input
+            class="form__range"
+            id="condition"
+            name="condition"
+            type="range"
+            min="0"
+            max="10"
+          />
+          <div class="form__grading">
+            Grade this attribute:
+            <label>
+              <input
+                class="form__radio"
+                id="grading-condition-1"
+                type="radio"
+                name="grading-condition"
+                value="1"
+              />
+              Less important
+            </label>
+            <label>
+              <input
+                checked
+                class="form__radio"
+                id="grading-condition-2"
+                type="radio"
+                name="grading-condition"
+                value="2"
+              />
+              Medium important
+            </label>
+            <label>
+              <input
+                class="form__radio"
+                id="grading-condition-3"
+                type="radio"
+                name="grading-condition"
+                value="3"
+              />
+              Very important
+            </label>
+          </div>
+        </div>
+
+        <div class="form__group">
+          <label for="condition">
+            Rate the energy performance of the house (0-10): <span class="form__result"></span>
+          </label>
+          <input
+            class="form__range"
+            id="energy"
+            name="energy"
+            type="range"
+            min="0"
+            max="10"
+          />
+          <div class="form__grading">
+            Grade this attribute:
+            <label>
+              <input
+                class="form__radio"
+                id="grading-energy-1"
+                type="radio"
+                name="grading-energy"
+                value="1"
+              />
+              Less important
+            </label>
+            <label>
+              <input
+                checked
+                class="form__radio"
+                id="grading-energy-2"
+                type="radio"
+                name="grading-energy"
+                value="2"
+              />
+              Medium important
+            </label>
+            <label>
+              <input
+                class="form__radio"
+                id="grading-energy-3"
+                type="radio"
+                name="grading-energy"
+                value="3"
+              />
+              Very important
+            </label>
+          </div>
+        </div>
+
+        <div class="form__group">
+          <label for="kitchen">Rate the kitchen (0-10): <span class="form__result"></span></label>
+          <input
+            class="form__range"
+            id="kitchen"
+            name="kitchen"
+            type="range"
+            min="0"
+            max="10"
+          />
+
+          <div class="form__grading">
+            Grade this attribute:
+            <label>
+              <input
+                class="form__radio"
+                id="grading-kitchen-1"
+                type="radio"
+                name="grading-kitchen"
+                value="1"
+              />
+              Less important
+            </label>
+            <label>
+              <input
+                checked
+                class="form__radio"
+                id="grading-kitchen-2"
+                type="radio"
+                name="grading-kitchen"
+                value="2"
+              />
+              Medium important
+            </label>
+            <label>
+              <input
+                class="form__radio"
+                id="grading-kitchen-3"
+                type="radio"
+                name="grading-kitchen"
+                value="3"
+              />
+              Very important
+            </label>
+          </div>
+        </div>
+
+        <div class="form__group">
+          <label for="garden">Rate the garden (0-10): <span class="form__result"></span>
+          </label>
+          <input
+            class="form__range"
+            id="garden"
+            name="garden"
+            type="range"
+            min="0"
+            max="10"
+          />
+          
+          <div class="form__grading">
+            Grade this attribute:
+            <label>
+              <input
+                class="form__radio"
+                id="grading-garden-1"
+                type="radio"
+                name="grading-garden"
+                value="1"
+              />
+              Less important
+            </label>
+            <label>
+              <input
+                checked
+                class="form__radio"
+                id="grading-garden-2"
+                type="radio"
+                name="grading-garden"
+                value="2"
+              />
+              Medium important
+            </label>
+            <label>
+              <input
+                class="form__radio"
+                id="grading-garden-3"
+                type="radio"
+                name="grading-garden"
+                value="3"
+              />
+              Very important
+            </label>
+          </div>
+        </div>
+
+        <div class="form__group">
+          <label for="parking">Rate the parking situation (0-10): <span class="form__result"></span>
+          </label>
+          <input
+            class="form__range"
+            id="parking"
+            name="parking"
+            type="range"
+            min="0"
+            max="10"
+          />
+          
+          <div class="form__grading">
+            Grade this attribute:
+            <label>
+              <input
+                class="form__radio"
+                id="grading-parking-1"
+                type="radio"
+                name="grading-parking"
+                value="1"
+              />
+              Less important
+            </label>
+            <label>
+              <input
+                checked
+                class="form__radio"
+                id="grading-parking-2"
+                type="radio"
+                name="grading-parking"
+                value="2"
+              />
+              Medium important
+            </label>
+            <label>
+              <input
+                class="form__radio"
+                id="grading-parking-3"
+                type="radio"
+                name="grading-parking"
+                value="3"
+              />
+              Very important
+            </label>
+          </div>
+        </div>
+
+        <div class="form__group">
+          <label for="area">
+            Rate the surrounding area (Parks, Shopping, Playgrounds, Noise level, Traffic, Doctors, 0-10):
+          <span class="form__result"></span>
+          </label>
+          <input
+            class="form__range"
+            id="area"
+            name="area"
+            type="range"
+            min="0"
+            max="10"
+          />
+
+          <div class="form__grading">
+            Grade this attribute:
+            <label>
+              <input
+                class="form__radio"
+                id="grading-area-1"
+                type="radio"
+                name="grading-area"
+                value="1"
+              />
+              Less important
+            </label>
+            <label>
+              <input
+                checked
+                class="form__radio"
+                id="grading-area-2"
+                type="radio"
+                name="grading-area"
+                value="2"
+              />
+              Medium important
+            </label>
+            <label>
+              <input
+                class="form__radio"
+                id="grading-area-3"
+                type="radio"
+                name="grading-area"
+                value="3"
+              />
+              Very important
+            </label>
+          </div>
+        </div>
+
+        <div class="form__group">
+          <label for="distance-work">Distance to work (kilometers):
+          <span class="form__result"></span>
+          </label>
+          <input
+            class="form__range"
+            data-inverse="true"
+            id="distance-work"
+            name="distance-work"
+            type="range"
+            min="0"
+            max="50"
+          />
+
+          <div class="form__grading">
+            Grade this attribute:
+            <label>
+              <input
+                class="form__radio"
+                id="grading-work-1"
+                type="radio"
+                name="grading-work"
+                value="1"
+              />
+              Less important
+            </label>
+            <label>
+              <input
+                checked
+                class="form__radio"
+                id="grading-work-2"
+                type="radio"
+                name="grading-work"
+                value="2"
+              />
+              Medium important
+            </label>
+            <label>
+              <input
+                class="form__radio"
+                id="grading-work-3"
+                type="radio"
+                name="grading-work"
+                value="3"
+              />
+              Very important
+            </label>
+          </div>
+        </div>
+
+        <div class="form__group">
+          <label for="distance-kindergarten">
+            Distance to kindergarten / daycare (meters):
+            <span class="form__result"></span>
+          </label>
+          <input
+            class="form__range"
+            data-inverse="true"
+            id="distance-kindergarten"
+            name="distance-kindergarten"
+            type="range"
+            min="0"
+            max="50000"
+            step="10"
+          />
+
+          <div class="form__grading">
+            Grade this attribute:
+            <label>
+              <input
+                class="form__radio"
+                id="grading-kindergarten-1"
+                type="radio"
+                name="grading-kindergarten"
+                value="1"
+              />
+              Less important
+            </label>
+            <label>
+              <input
+                checked
+                class="form__radio"
+                id="grading-kindergarten-2"
+                type="radio"
+                name="grading-kindergarten"
+                value="2"
+              />
+              Medium important
+            </label>
+            <label>
+              <input
+                class="form__radio"
+                id="grading-kindergarten-3"
+                type="radio"
+                name="grading-kindergarten"
+                value="3"
+              />
+              Very important
+            </label>
+          </div>
+        </div>
+
+        <div class="form__group">
+          <label for="distance-school">
+            Distance to school (meters):          
+            <span class="form__result"></span>
+          </label>
+          <input
+            class="form__range"
+            data-inverse="true"
+            id="distance-school"
+            name="distance-school"
+            type="range"
+            min="0"
+            max="50000"
+            step="10"
+          />
+
+          <div class="form__grading">
+            Grade this attribute:
+            <label>
+              <input
+                class="form__radio"
+                id="grading-school-1"
+                type="radio"
+                name="grading-school"
+                value="1"
+              />
+              Less important
+            </label>
+            <label>
+              <input
+                checked
+                class="form__radio"
+                id="grading-school-2"
+                type="radio"
+                name="grading-school"
+                value="2"
+              />
+              Medium important
+            </label>
+            <label>
+              <input
+                class="form__radio"
+                id="grading-school-3"
+                type="radio"
+                name="grading-school"
+                value="3"
+              />
+              Very important
+            </label>
+          </div>
+        </div>
+
+        <div class="form__group">
+          <label for="distance-transport">
+            Distance to public transport (meters):
+            <span class="form__result"></span>
+          </label>
+          <input
+            class="form__range"
+            data-inverse="true"
+            id="distance-transport"
+            name="distance-transport"
+            type="range"
+            min="0"
+            max="10000"
+            step="10"
+          />
+
+          <div class="form__grading">
+            Grade this attribute:
+            <label>
+              <input
+                class="form__radio"
+                id="grading-transport-1"
+                type="radio"
+                name="grading-transport"
+                value="1"
+              />
+              Less important
+            </label>
+            <label>
+              <input
+                checked
+                class="form__radio"
+                id="grading-transport-2"
+                type="radio"
+                name="grading-transport"
+                value="2"
+              />
+              Medium important
+            </label>
+            <label>
+              <input
+                class="form__radio"
+                id="grading-transport-3"
+                type="radio"
+                name="grading-transport"
+                value="3"
+              />
+              Very important
+            </label>
+          </div>
+        </div>
+
+        <div class="form__score">
+          Final Score
+          <span class="form__score-number"></span>
+        </div>
+      </form>
+
+      <h2>Tags</h2>
+      <div class="tag-area">
+        <div class="tag-area__tag">vertical_scrolling</div>
+        <div class="tag-area__tag">horizontal_sliding</div>
+        <div class="tag-area__tag">HTML5</div>
+        <div class="tag-area__tag">JavaScript</div>
+        <div class="tag-area__tag">CSS</div>
+        <div class="tag-area__tag">Flexbox</div>
+        <div class="tag-area__tag">Vanilla_JS</div>
+        <div class="tag-area__tag">ES6</div>
+        <div class="tag-area__tag">SASS</div>
+        <div class="tag-area__tag">BEM</div>
+        <div class="tag-area__tag">responsive</div>
+        <div class="tag-area__tag">multi_level</div>
+        <div class="tag-area__tag">hierarchical</div>
+        <div class="tag-area__tag">open_source</div>
+        <div class="tag-area__tag">material_design_icons</div>
+      </div>
+
+      <h2>Setup</h2>
+      <div class="tag-area">
+        <div class="tag-area__tag tag-area__tag--tech">gulp</div>
+        <div class="tag-area__tag tag-area__tag--tech">gulp-sass</div>
+        <div class="tag-area__tag tag-area__tag--tech">gulp-babel</div>
+        <div class="tag-area__tag tag-area__tag--tech">gulp-uglify</div>
+        <div class="tag-area__tag tag-area__tag--tech">gulp-clean-css</div>
+        <div class="tag-area__tag tag-area__tag--tech">gulp-postcss</div>
+        <div class="tag-area__tag tag-area__tag--tech">gulp-sourcemaps</div>
+        <div class="tag-area__tag tag-area__tag--tech">normalize.css</div>
+      </div>
+
+      <h2>Social</h2>
+      <div class="social-area">
+        <a
+          class="social-area__link"
+          target="_blank"
+          href="https://www.instagram.com/chr1s.d3v"
+        >
+          <img
+            class="social-area__img"
+            src="img/instagram.svg"
+            alt="Instagram"
+          />
+        </a>
+        <a
+          class="social-area__link"
+          target="_blank"
+          href="https://github.com/chrizzzle/chr1s.d3v"
+        >
+          <img class="social-area__img" src="img/github.svg" alt="GitHub" />
+        </a>
+        <a
+          class="social-area__link"
+          target="_blank"
+          href="https://twitter.com/chrizle"
+        >
+          <img class="social-area__img" src="img/twitter.svg" alt="Twitter" />
+        </a>
+      </div>
+    </section>
+
+    <script type="text/javascript" src="js/base.js"></script>
+    <script type="text/javascript" src="js/house-score.js"></script>
+  </body>
+</html>

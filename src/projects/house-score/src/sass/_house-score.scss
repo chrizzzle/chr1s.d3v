@@ -1,0 +1,29 @@
+.form {
+  &__score {
+    background-color: $color-primary;
+    color: white;
+    padding: 20px 42px;
+    font-size: 1.5rem;
+  }
+
+  &__result {
+    padding-left: 2px;
+    padding-right: 2px;
+    color: white;
+    &--orange {
+      background-color: darken(orange, 0.5);
+    }
+    &--green {
+      background-color: green;
+    }
+    &--red {
+      background-color: red;
+    }
+  }
+}
+
+.form__score-number {
+  padding-left: 2px;
+  padding-right: 2px;
+  color: white;
+}

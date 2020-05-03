@@ -162,3 +162,30 @@ button {
   padding: 5px 10px;
 
 }
+
+label {
+  display: block;
+  cursor: pointer;
+}
+
+.form {
+  padding-left: 2px;
+  padding-right: 2px;
+  max-width: 760px;
+  width: 100%;
+
+  &__range {
+    display: block;
+    width: 100%;  
+  }
+
+  &__input {
+    width: 100%;
+  }
+
+  &__group {
+    margin: 15px auto;
+    background: #ccc;
+    padding: 20px 42px;
+  }
+}
