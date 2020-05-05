@@ -2,7 +2,7 @@
   &__score {
     background-color: $color-primary;
     color: white;
-    padding: 20px 42px;
+    padding: 20px 0;
     font-size: 1.5rem;
   }
 
@@ -48,5 +48,7 @@
 
   &__delete {
     background: transparent;
+    display: flex;
+    align-items: center;
   }
 }
