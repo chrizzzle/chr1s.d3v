@@ -20,10 +20,33 @@
       background-color: red;
     }
   }
+
+  &__controls {
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  &__result-name {
+    flex: 1;
+  }
 }
 
 .form__score-number {
   padding-left: 2px;
   padding-right: 2px;
   color: white;
+}
+
+.result {
+  &__item {
+    display: flex;
+    padding: 2px;
+    align-items: center;
+    color: white;
+    justify-content: space-between;
+  }
+
+  &__delete {
+    background: transparent;
+  }
 }

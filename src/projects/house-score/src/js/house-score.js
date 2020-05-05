@@ -7,6 +7,9 @@ const idealSpacePropertyField = document.getElementById("ideal-space-property");
 const priceField = document.getElementById("price");
 const spaceField = document.getElementById("space-house");
 const spacePropertyField = document.getElementById("space-property");
+const form = document.querySelector(".form");
+const savedResultField = document.querySelector(".results");
+const savedResultNameField = document.querySelector(".form__result-name");
 let resultField, totalMax;
 
 const calcScore = () => {
@@ -66,7 +69,7 @@ const getGrading = (range) => {
 const setScore = () => {
   const score = calcScore();
   const colorClass = getColorClass(score, 1, false, 2);
-  scoreField.innerHTML = Math.ceil(calcScore() * 100) + "/ 100";
+  scoreField.innerHTML = Math.ceil(calcScore() * 100) + "/100";
   scoreField.classList.add(colorClass);
 };
 const setResult = (range) => {
@@ -98,6 +101,61 @@ const setMax = (field, value) => {
   field.setAttribute("max", value)
 };
 
+const saveResult = () => {
+  let results = JSON.parse(localStorage.getItem("house-score-results") || "[]");
+  let name = savedResultNameField.value || `House-${results.length}`;
+  results.push({
+    name: name,
+    score: calcScore(),
+    scoreText: scoreField.innerHTML
+  });
+
+  localStorage.setItem("house-score-results", JSON.stringify(results));
+}
+
+const removeResult = (id) => {
+  const results = JSON.parse(localStorage.getItem("house-score-results") || "[]");
+  const newResults = results.filter(result => result.name !== id);
+  localStorage.setItem("house-score-results", JSON.stringify(newResults));
+}
+
+const onRemoveResult = function (name) {
+  return function () {
+    removeResult(name);
+    renderResults();
+  };
+};
+
+const renderResults = () => {
+  const results = JSON.parse(localStorage.getItem("house-score-results") || "[]");
+  let colorClass;
+  savedResultField.innerHTML = "";
+
+  if (results.length <= 0) {
+    savedResultField.innerHTML = "No saved scores.";
+    return;
+  }
+  
+  for (let i = 0; i < results.length; i++) {
+    let entryField = document.createElement("div");
+    let buttonField = document.createElement("button");
+    let icon = document.createElement("i");
+    icon.classList.add("material-icons");
+    icon.innerHTML = "close";
+    buttonField.classList.add("result__delete");
+    buttonField.setAttribute("type", "button");
+    buttonField.appendChild(icon);
+    entryField.classList.add("result__item");
+    colorClass = getColorClass(results[i].score, 1, false, 2);
+    entryField.classList.add(colorClass);
+    entryField.innerHTML = results[i].name + " - " + results[i].scoreText;
+    entryField.appendChild(buttonField);  
+    savedResultField.appendChild(entryField);
+
+    buttonField.addEventListener("click", onRemoveResult(results[i].name));
+  }
+};
+
 for (let i = 0; i < ranges.length; i++) {
   ranges[i].addEventListener("input", onRangeInput(ranges[i]));
   setResult(ranges[i]);
@@ -122,4 +180,12 @@ idealSpacePropertyField.addEventListener("change", () => {
   setMax(spacePropertyField, idealSpacePropertyField.value)
 });
 
+form.addEventListener("submit", (event) => {
+  event.preventDefault();
+  event.stopPropagation();
+  saveResult();
+  renderResults();
+});
+
 setScore();
+renderResults();
