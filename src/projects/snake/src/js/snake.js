@@ -152,7 +152,9 @@ class Snake {
         });
 
         if (found) {
-            document.dispatchEvent(new Event('snake:dead'));
+            const customEvent = document.createEvent('HTMLEvents');
+            customEvent.initEvent('snake:dead', true, true);
+            document.dispatchEvent(customEvent);
         }
     }
 
@@ -163,7 +165,9 @@ class Snake {
     checkIfApple() {
         if (this._map.isAppleField(this._headField)) {
             this.addSnakeField();
-            document.dispatchEvent(new Event('snake:apple'));
+            const customEvent = document.createEvent('HTMLEvents');
+            customEvent.initEvent('snake:apple', true, true);
+            document.dispatchEvent(customEvent);
         }
     }
 
