@@ -91,3 +91,11 @@ if (!Array.prototype.find) {
         window.CustomEvent = CustomEvent; // expose definition to window
     }
 })();
+
+if (!('remove' in Element.prototype)) {
+    Element.prototype.remove = function() {
+        if (this.parentNode) {
+            this.parentNode.removeChild(this);
+        }
+    };
+}
