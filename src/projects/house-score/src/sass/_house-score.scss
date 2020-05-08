@@ -40,17 +40,16 @@
 }
 
 .results {
-  padding-left: 40px;
   background: $color-tertiary;
   color: white;
 }
 .result {
   &__item {
     display: flex;
-    padding: 2px;
     align-items: center;
     color: white;
     justify-content: space-between;
+    padding-left: 40px;
   }
 
   &__delete {
