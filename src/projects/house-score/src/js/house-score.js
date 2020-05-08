@@ -10,7 +10,7 @@ const spacePropertyField = document.getElementById("space-property");
 const form = document.querySelector(".form");
 const savedResultField = document.querySelector(".results");
 const savedResultNameField = document.querySelector(".form__result-name");
-let resultField, totalMax;
+let resultField;
 
 const calcScore = () => {
   let relativeScoreSum = 0,
@@ -50,7 +50,7 @@ const getColorClass = (value, max, inverse, grading) => {
     }
   }
 
-  
+
   if (result > thresholds[grading].green) {
     return "form__result--green";
   }
@@ -102,7 +102,8 @@ const setMax = (field, value) => {
 };
 
 const saveResult = () => {
-  let results = JSON.parse(localStorage.getItem("house-score-results") || "[]");
+  if (!window.localStorage) {return;}
+  let results = JSON.parse(window.localStorage.getItem("house-score-results") || "[]");
   let name = savedResultNameField.value || `House-${results.length}`;
   results.push({
     name: name,
@@ -110,13 +111,14 @@ const saveResult = () => {
     scoreText: scoreField.innerHTML
   });
 
-  localStorage.setItem("house-score-results", JSON.stringify(results));
+  window.localStorage.setItem("house-score-results", JSON.stringify(results));
 }
 
 const removeResult = (id) => {
-  const results = JSON.parse(localStorage.getItem("house-score-results") || "[]");
+  if (!window.localStorage) {return;}
+  const results = JSON.parse(window.localStorage.getItem("house-score-results") || "[]");
   const newResults = results.filter(result => result.name !== id);
-  localStorage.setItem("house-score-results", JSON.stringify(newResults));
+  window.localStorage.setItem("house-score-results", JSON.stringify(newResults));
 }
 
 const onRemoveResult = function (name) {
@@ -127,7 +129,8 @@ const onRemoveResult = function (name) {
 };
 
 const renderResults = () => {
-  const results = JSON.parse(localStorage.getItem("house-score-results") || "[]");
+  if (!window.localStorage) {return;}
+  const results = JSON.parse(window.localStorage.getItem("house-score-results") || "[]");
   let colorClass;
   savedResultField.innerHTML = "";
 
@@ -135,7 +138,7 @@ const renderResults = () => {
     savedResultField.innerHTML = "No saved scores.";
     return;
   }
-  
+
   for (let i = 0; i < results.length; i++) {
     let entryField = document.createElement("div");
     let buttonField = document.createElement("button");
@@ -149,7 +152,7 @@ const renderResults = () => {
     colorClass = getColorClass(results[i].score, 1, false, 2);
     entryField.classList.add(colorClass);
     entryField.innerHTML = results[i].name + " - " + results[i].scoreText;
-    entryField.appendChild(buttonField);  
+    entryField.appendChild(buttonField);
     savedResultField.appendChild(entryField);
 
     buttonField.addEventListener("click", onRemoveResult(results[i].name));
@@ -158,14 +161,15 @@ const renderResults = () => {
 
 for (let i = 0; i < ranges.length; i++) {
   ranges[i].addEventListener("input", onRangeInput(ranges[i]));
+  ranges[i].addEventListener("change", onRangeInput(ranges[i]));
   setResult(ranges[i]);
-  totalMax += parseInt(ranges[i].getAttribute("max"), 10);
 }
 
+let range;
 for (let i = 0; i < radios.length; i++) {
-  let range;
   range = radios[i].closest(".form__group").querySelector(".form__range");
   radios[i].addEventListener("input", onRangeInput(range));
+  radios[i].addEventListener("change", onRangeInput(range));
 }
 
 maxPriceField.addEventListener("change", () => {

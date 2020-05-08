@@ -63,54 +63,60 @@
         </div>
 
 
-        <div class="form__group">
-          <label for="price">Total Price (including renovations): <span class="form__result"></span>€</label>
-          <input
-            class="form__range"
-            data-inverse="true"
-            type="range"
-            min="0"
-            max="500000"
-            name="price"
-            id="price"
-            step="100"
-          />
+          <div class="form__group">
+              <label for="price">Total Price (including renovations): <span class="form__result"></span>€</label>
+              <input
+                class="form__range"
+                data-inverse="true"
+                type="range"
+                min="0"
+                max="500000"
+                name="price"
+                id="price"
+                step="100"
+              />
 
-          <div class="form__grading">
-            Grade this attribute:
-            <label>
-              <input
-                class="form__radio"
-                id="grading-price-1"
-                type="radio"
-                name="grading-price"
-                value="1"
-              />
-              Less important
-            </label>
-            <label>
-              <input
-                checked
-                class="form__radio"
-                id="grading-price-2"
-                type="radio"
-                name="grading-price"
-                value="2"
-              />
-              Medium important
-            </label>
-            <label>
-              <input
-                class="form__radio"
-                id="grading-price-3"
-                type="radio"
-                name="grading-price"
-                value="3"
-              />
-              Very important
-            </label>
+              <div class="form__grading">
+                  Grade this attribute:
+                  <div class="form__radio-wrapper">
+                      <input
+                        class="form__radio"
+                        id="grading-price-1"
+                        type="radio"
+                        name="grading-price"
+                        value="1"
+                      />
+                      <label for="grading-price-1">
+                          Low relevance
+                      </label>
+                  </div>
+                  <div class="form__radio-wrapper">
+                      <input
+                          checked
+                          class="form__radio"
+                          id="grading-price-2"
+                          type="radio"
+                          name="grading-price"
+                          value="2"
+                      />
+                      <label for="grading-price-2">
+                          Medium relevance
+                      </label>
+                  </div>
+                  <div class="form__radio-wrapper">
+                      <input
+                        class="form__radio"
+                        id="grading-price-3"
+                        type="radio"
+                        name="grading-price"
+                        value="3"
+                      />
+                      <label for="grading-price-3">
+                          High relevance
+                      </label>
+                  </div>
+              </div>
           </div>
-        </div>
 
         <div class="form__group">
           <label for="space-house">Space of the house (m²): <span class="form__result"></span>m²</label>
@@ -125,37 +131,43 @@
 
           <div class="form__grading">
             Grade this attribute:
-            <label>
-              <input
-                class="form__radio"
-                id="grading-space-1"
-                type="radio"
-                name="grading-space"
-                value="1"
-              />
-              Less important
-            </label>
-            <label>
-              <input
-                checked
-                class="form__radio"
-                id="grading-space-2"
-                type="radio"
-                name="grading-space"
-                value="2"
-              />
-              Medium important
-            </label>
-            <label>
-              <input
-                class="form__radio"
-                id="grading-space-3"
-                type="radio"
-                name="grading-space"
-                value="3"
-              />
-              Very important
-            </label>
+              <div class="form__radio-wrapper">
+                  <input
+                      class="form__radio"
+                      id="grading-space-1"
+                      type="radio"
+                      name="grading-space"
+                      value="1"
+                  />
+                  <label for="grading-space-1">
+                      Low relevance
+                  </label>
+              </div>
+              <div class="form__radio-wrapper">
+                  <input
+                      checked
+                      class="form__radio"
+                      id="grading-space-2"
+                      type="radio"
+                      name="grading-space"
+                      value="2"
+                  />
+                  <label for="grading-space-2">
+                      Medium relevance
+                  </label>
+              </div>
+              <div class="form__radio-wrapper">
+                  <input
+                      class="form__radio"
+                      id="grading-space-3"
+                      type="radio"
+                      name="grading-space"
+                      value="3"
+                  />
+                  <label for="grading-space-3">
+                      High relevance
+                  </label>
+              </div>
           </div>
         </div>
 
@@ -170,40 +182,46 @@
             max="250"
           />
 
-          <div class="form__grading">
-            Grade this attribute:
-            <label>
-              <input
-                class="form__radio"
-                id="grading-space-property-1"
-                type="radio"
-                name="grading-space-property"
-                value="1"
-              />
-              Less important
-            </label>
-            <label>
-              <input
-                checked
-                class="form__radio"
-                id="grading-space-property-2"
-                type="radio"
-                name="grading-space-property"
-                value="2"
-              />
-              Medium important
-            </label>
-            <label>
-              <input
-                class="form__radio"
-                id="grading-space-property-3"
-                type="radio"
-                name="grading-space-property"
-                value="3"
-              />
-              Very important
-            </label>
-          </div>
+            <div class="form__grading">
+                Grade this attribute:
+                <div class="form__radio-wrapper">
+                    <input
+                        class="form__radio"
+                        id="grading-space-property-1"
+                        type="radio"
+                        name="grading-space-property"
+                        value="1"
+                    />
+                    <label for="grading-space-property-1">
+                        Low relevance
+                    </label>
+                </div>
+                <div class="form__radio-wrapper">
+                    <input
+                        checked
+                        class="form__radio"
+                        id="grading-space-property-2"
+                        type="radio"
+                        name="grading-space-property"
+                        value="2"
+                    />
+                    <label for="grading-space-property-2">
+                        Medium relevance
+                    </label>
+                </div>
+                <div class="form__radio-wrapper">
+                    <input
+                        class="form__radio"
+                        id="grading-space-property-3"
+                        type="radio"
+                        name="grading-space-property"
+                        value="3"
+                    />
+                    <label for="grading-space-property-3">
+                        High relevance
+                    </label>
+                </div>
+            </div>
         </div>
 
         <div class="form__group">
@@ -219,40 +237,46 @@
             min="0"
             max="10"
           />
-          <div class="form__grading">
-            Grade this attribute:
-            <label>
-              <input
-                class="form__radio"
-                id="grading-condition-1"
-                type="radio"
-                name="grading-condition"
-                value="1"
-              />
-              Less important
-            </label>
-            <label>
-              <input
-                checked
-                class="form__radio"
-                id="grading-condition-2"
-                type="radio"
-                name="grading-condition"
-                value="2"
-              />
-              Medium important
-            </label>
-            <label>
-              <input
-                class="form__radio"
-                id="grading-condition-3"
-                type="radio"
-                name="grading-condition"
-                value="3"
-              />
-              Very important
-            </label>
-          </div>
+            <div class="form__grading">
+                Grade this attribute:
+                <div class="form__radio-wrapper">
+                    <input
+                        class="form__radio"
+                        id="grading-condition-1"
+                        type="radio"
+                        name="grading-condition"
+                        value="1"
+                    />
+                    <label for="grading-condition-1">
+                        Low relevance
+                    </label>
+                </div>
+                <div class="form__radio-wrapper">
+                    <input
+                        checked
+                        class="form__radio"
+                        id="grading-condition-2"
+                        type="radio"
+                        name="grading-condition"
+                        value="2"
+                    />
+                    <label for="grading-condition-2">
+                        Medium relevance
+                    </label>
+                </div>
+                <div class="form__radio-wrapper">
+                    <input
+                        class="form__radio"
+                        id="grading-condition-3"
+                        type="radio"
+                        name="grading-condition"
+                        value="3"
+                    />
+                    <label for="grading-condition-3">
+                        High relevance
+                    </label>
+                </div>
+            </div>
         </div>
 
         <div class="form__group">
@@ -267,40 +291,46 @@
             min="0"
             max="10"
           />
-          <div class="form__grading">
-            Grade this attribute:
-            <label>
-              <input
-                class="form__radio"
-                id="grading-energy-1"
-                type="radio"
-                name="grading-energy"
-                value="1"
-              />
-              Less important
-            </label>
-            <label>
-              <input
-                checked
-                class="form__radio"
-                id="grading-energy-2"
-                type="radio"
-                name="grading-energy"
-                value="2"
-              />
-              Medium important
-            </label>
-            <label>
-              <input
-                class="form__radio"
-                id="grading-energy-3"
-                type="radio"
-                name="grading-energy"
-                value="3"
-              />
-              Very important
-            </label>
-          </div>
+            <div class="form__grading">
+                Grade this attribute:
+                <div class="form__radio-wrapper">
+                    <input
+                            class="form__radio"
+                            id="grading-energy-1"
+                            type="radio"
+                            name="grading-energy"
+                            value="1"
+                    />
+                    <label for="grading-energy-1">
+                        Low relevance
+                    </label>
+                </div>
+                <div class="form__radio-wrapper">
+                    <input
+                            checked
+                            class="form__radio"
+                            id="grading-energy-2"
+                            type="radio"
+                            name="grading-energy"
+                            value="2"
+                    />
+                    <label for="grading-energy-2">
+                        Medium relevance
+                    </label>
+                </div>
+                <div class="form__radio-wrapper">
+                    <input
+                            class="form__radio"
+                            id="grading-energy-3"
+                            type="radio"
+                            name="grading-energy"
+                            value="3"
+                    />
+                    <label for="grading-energy-3">
+                        High relevance
+                    </label>
+                </div>
+            </div>
         </div>
 
         <div class="form__group">
@@ -314,40 +344,46 @@
             max="10"
           />
 
-          <div class="form__grading">
-            Grade this attribute:
-            <label>
-              <input
-                class="form__radio"
-                id="grading-kitchen-1"
-                type="radio"
-                name="grading-kitchen"
-                value="1"
-              />
-              Less important
-            </label>
-            <label>
-              <input
-                checked
-                class="form__radio"
-                id="grading-kitchen-2"
-                type="radio"
-                name="grading-kitchen"
-                value="2"
-              />
-              Medium important
-            </label>
-            <label>
-              <input
-                class="form__radio"
-                id="grading-kitchen-3"
-                type="radio"
-                name="grading-kitchen"
-                value="3"
-              />
-              Very important
-            </label>
-          </div>
+            <div class="form__grading">
+                Grade this attribute:
+                <div class="form__radio-wrapper">
+                    <input
+                            class="form__radio"
+                            id="grading-kitchen-1"
+                            type="radio"
+                            name="grading-kitchen"
+                            value="1"
+                    />
+                    <label for="grading-kitchen-1">
+                        Low relevance
+                    </label>
+                </div>
+                <div class="form__radio-wrapper">
+                    <input
+                            checked
+                            class="form__radio"
+                            id="grading-kitchen-2"
+                            type="radio"
+                            name="grading-kitchen"
+                            value="2"
+                    />
+                    <label for="grading-kitchen-2">
+                        Medium relevance
+                    </label>
+                </div>
+                <div class="form__radio-wrapper">
+                    <input
+                            class="form__radio"
+                            id="grading-kitchen-3"
+                            type="radio"
+                            name="grading-kitchen"
+                            value="3"
+                    />
+                    <label for="grading-kitchen-3">
+                        High relevance
+                    </label>
+                </div>
+            </div>
         </div>
 
         <div class="form__group">
@@ -361,41 +397,47 @@
             min="0"
             max="10"
           />
-          
-          <div class="form__grading">
-            Grade this attribute:
-            <label>
-              <input
-                class="form__radio"
-                id="grading-garden-1"
-                type="radio"
-                name="grading-garden"
-                value="1"
-              />
-              Less important
-            </label>
-            <label>
-              <input
-                checked
-                class="form__radio"
-                id="grading-garden-2"
-                type="radio"
-                name="grading-garden"
-                value="2"
-              />
-              Medium important
-            </label>
-            <label>
-              <input
-                class="form__radio"
-                id="grading-garden-3"
-                type="radio"
-                name="grading-garden"
-                value="3"
-              />
-              Very important
-            </label>
-          </div>
+
+            <div class="form__grading">
+                Grade this attribute:
+                <div class="form__radio-wrapper">
+                    <input
+                            class="form__radio"
+                            id="grading-garden-1"
+                            type="radio"
+                            name="grading-garden"
+                            value="1"
+                    />
+                    <label for="grading-garden-1">
+                        Low relevance
+                    </label>
+                </div>
+                <div class="form__radio-wrapper">
+                    <input
+                            checked
+                            class="form__radio"
+                            id="grading-garden-2"
+                            type="radio"
+                            name="grading-garden"
+                            value="2"
+                    />
+                    <label for="grading-garden-2">
+                        Medium relevance
+                    </label>
+                </div>
+                <div class="form__radio-wrapper">
+                    <input
+                            class="form__radio"
+                            id="grading-garden-3"
+                            type="radio"
+                            name="grading-garden"
+                            value="3"
+                    />
+                    <label for="grading-garden-3">
+                        High relevance
+                    </label>
+                </div>
+            </div>
         </div>
 
         <div class="form__group">
@@ -409,41 +451,47 @@
             min="0"
             max="10"
           />
-          
-          <div class="form__grading">
-            Grade this attribute:
-            <label>
-              <input
-                class="form__radio"
-                id="grading-parking-1"
-                type="radio"
-                name="grading-parking"
-                value="1"
-              />
-              Less important
-            </label>
-            <label>
-              <input
-                checked
-                class="form__radio"
-                id="grading-parking-2"
-                type="radio"
-                name="grading-parking"
-                value="2"
-              />
-              Medium important
-            </label>
-            <label>
-              <input
-                class="form__radio"
-                id="grading-parking-3"
-                type="radio"
-                name="grading-parking"
-                value="3"
-              />
-              Very important
-            </label>
-          </div>
+
+            <div class="form__grading">
+                Grade this attribute:
+                <div class="form__radio-wrapper">
+                    <input
+                            class="form__radio"
+                            id="grading-parking-1"
+                            type="radio"
+                            name="grading-parking"
+                            value="1"
+                    />
+                    <label for="grading-parking-1">
+                        Low relevance
+                    </label>
+                </div>
+                <div class="form__radio-wrapper">
+                    <input
+                            checked
+                            class="form__radio"
+                            id="grading-parking-2"
+                            type="radio"
+                            name="grading-parking"
+                            value="2"
+                    />
+                    <label for="grading-parking-2">
+                        Medium relevance
+                    </label>
+                </div>
+                <div class="form__radio-wrapper">
+                    <input
+                            class="form__radio"
+                            id="grading-parking-3"
+                            type="radio"
+                            name="grading-parking"
+                            value="3"
+                    />
+                    <label for="grading-parking-3">
+                        High relevance
+                    </label>
+                </div>
+            </div>
         </div>
 
         <div class="form__group">
@@ -460,40 +508,46 @@
             max="10"
           />
 
-          <div class="form__grading">
-            Grade this attribute:
-            <label>
-              <input
-                class="form__radio"
-                id="grading-area-1"
-                type="radio"
-                name="grading-area"
-                value="1"
-              />
-              Less important
-            </label>
-            <label>
-              <input
-                checked
-                class="form__radio"
-                id="grading-area-2"
-                type="radio"
-                name="grading-area"
-                value="2"
-              />
-              Medium important
-            </label>
-            <label>
-              <input
-                class="form__radio"
-                id="grading-area-3"
-                type="radio"
-                name="grading-area"
-                value="3"
-              />
-              Very important
-            </label>
-          </div>
+            <div class="form__grading">
+                Grade this attribute:
+                <div class="form__radio-wrapper">
+                    <input
+                            class="form__radio"
+                            id="grading-area-1"
+                            type="radio"
+                            name="grading-area"
+                            value="1"
+                    />
+                    <label for="grading-area-1">
+                        Low relevance
+                    </label>
+                </div>
+                <div class="form__radio-wrapper">
+                    <input
+                            checked
+                            class="form__radio"
+                            id="grading-area-2"
+                            type="radio"
+                            name="grading-area"
+                            value="2"
+                    />
+                    <label for="grading-area-2">
+                        Medium relevance
+                    </label>
+                </div>
+                <div class="form__radio-wrapper">
+                    <input
+                            class="form__radio"
+                            id="grading-area-3"
+                            type="radio"
+                            name="grading-area"
+                            value="3"
+                    />
+                    <label for="grading-area-3">
+                        High relevance
+                    </label>
+                </div>
+            </div>
         </div>
 
         <div class="form__group">
@@ -510,40 +564,46 @@
             max="50"
           />
 
-          <div class="form__grading">
-            Grade this attribute:
-            <label>
-              <input
-                class="form__radio"
-                id="grading-work-1"
-                type="radio"
-                name="grading-work"
-                value="1"
-              />
-              Less important
-            </label>
-            <label>
-              <input
-                checked
-                class="form__radio"
-                id="grading-work-2"
-                type="radio"
-                name="grading-work"
-                value="2"
-              />
-              Medium important
-            </label>
-            <label>
-              <input
-                class="form__radio"
-                id="grading-work-3"
-                type="radio"
-                name="grading-work"
-                value="3"
-              />
-              Very important
-            </label>
-          </div>
+            <div class="form__grading">
+                Grade this attribute:
+                <div class="form__radio-wrapper">
+                    <input
+                            class="form__radio"
+                            id="grading-work-1"
+                            type="radio"
+                            name="grading-work"
+                            value="1"
+                    />
+                    <label for="grading-work-1">
+                        Low relevance
+                    </label>
+                </div>
+                <div class="form__radio-wrapper">
+                    <input
+                            checked
+                            class="form__radio"
+                            id="grading-work-2"
+                            type="radio"
+                            name="grading-work"
+                            value="2"
+                    />
+                    <label for="grading-work-2">
+                        Medium relevance
+                    </label>
+                </div>
+                <div class="form__radio-wrapper">
+                    <input
+                            class="form__radio"
+                            id="grading-work-3"
+                            type="radio"
+                            name="grading-work"
+                            value="3"
+                    />
+                    <label for="grading-work-3">
+                        High relevance
+                    </label>
+                </div>
+            </div>
         </div>
 
         <div class="form__group">
@@ -558,49 +618,55 @@
             name="distance-kindergarten"
             type="range"
             min="0"
-            max="50000"
+            max="20000"
             step="10"
           />
 
-          <div class="form__grading">
-            Grade this attribute:
-            <label>
-              <input
-                class="form__radio"
-                id="grading-kindergarten-1"
-                type="radio"
-                name="grading-kindergarten"
-                value="1"
-              />
-              Less important
-            </label>
-            <label>
-              <input
-                checked
-                class="form__radio"
-                id="grading-kindergarten-2"
-                type="radio"
-                name="grading-kindergarten"
-                value="2"
-              />
-              Medium important
-            </label>
-            <label>
-              <input
-                class="form__radio"
-                id="grading-kindergarten-3"
-                type="radio"
-                name="grading-kindergarten"
-                value="3"
-              />
-              Very important
-            </label>
-          </div>
+            <div class="form__grading">
+                Grade this attribute:
+                <div class="form__radio-wrapper">
+                    <input
+                            class="form__radio"
+                            id="grading-kindergarten-1"
+                            type="radio"
+                            name="grading-kindergarten"
+                            value="1"
+                    />
+                    <label for="grading-kindergarten-1">
+                        Low relevance
+                    </label>
+                </div>
+                <div class="form__radio-wrapper">
+                    <input
+                            checked
+                            class="form__radio"
+                            id="grading-kindergarten-2"
+                            type="radio"
+                            name="grading-kindergarten"
+                            value="2"
+                    />
+                    <label for="grading-kindergarten-2">
+                        Medium relevance
+                    </label>
+                </div>
+                <div class="form__radio-wrapper">
+                    <input
+                            class="form__radio"
+                            id="grading-kindergarten-3"
+                            type="radio"
+                            name="grading-kindergarten"
+                            value="3"
+                    />
+                    <label for="grading-kindergarten-3">
+                        High relevance
+                    </label>
+                </div>
+            </div>
         </div>
 
         <div class="form__group">
           <label for="distance-school">
-            Distance to school (meters):          
+            Distance to school (meters):
             <span class="form__result"></span>
           </label>
           <input
@@ -610,44 +676,50 @@
             name="distance-school"
             type="range"
             min="0"
-            max="50000"
+            max="20000"
             step="10"
           />
 
-          <div class="form__grading">
-            Grade this attribute:
-            <label>
-              <input
-                class="form__radio"
-                id="grading-school-1"
-                type="radio"
-                name="grading-school"
-                value="1"
-              />
-              Less important
-            </label>
-            <label>
-              <input
-                checked
-                class="form__radio"
-                id="grading-school-2"
-                type="radio"
-                name="grading-school"
-                value="2"
-              />
-              Medium important
-            </label>
-            <label>
-              <input
-                class="form__radio"
-                id="grading-school-3"
-                type="radio"
-                name="grading-school"
-                value="3"
-              />
-              Very important
-            </label>
-          </div>
+            <div class="form__grading">
+                Grade this attribute:
+                <div class="form__radio-wrapper">
+                    <input
+                            class="form__radio"
+                            id="grading-school-1"
+                            type="radio"
+                            name="grading-school"
+                            value="1"
+                    />
+                    <label for="grading-school-1">
+                        Low relevance
+                    </label>
+                </div>
+                <div class="form__radio-wrapper">
+                    <input
+                            checked
+                            class="form__radio"
+                            id="grading-school-2"
+                            type="radio"
+                            name="grading-school"
+                            value="2"
+                    />
+                    <label for="grading-school-2">
+                        Medium relevance
+                    </label>
+                </div>
+                <div class="form__radio-wrapper">
+                    <input
+                            class="form__radio"
+                            id="grading-school-3"
+                            type="radio"
+                            name="grading-school"
+                            value="3"
+                    />
+                    <label for="grading-school-3">
+                        High relevance
+                    </label>
+                </div>
+            </div>
         </div>
 
         <div class="form__group">
@@ -662,44 +734,50 @@
             name="distance-transport"
             type="range"
             min="0"
-            max="10000"
+            max="1000"
             step="10"
           />
 
-          <div class="form__grading">
-            Grade this attribute:
-            <label>
-              <input
-                class="form__radio"
-                id="grading-transport-1"
-                type="radio"
-                name="grading-transport"
-                value="1"
-              />
-              Less important
-            </label>
-            <label>
-              <input
-                checked
-                class="form__radio"
-                id="grading-transport-2"
-                type="radio"
-                name="grading-transport"
-                value="2"
-              />
-              Medium important
-            </label>
-            <label>
-              <input
-                class="form__radio"
-                id="grading-transport-3"
-                type="radio"
-                name="grading-transport"
-                value="3"
-              />
-              Very important
-            </label>
-          </div>
+            <div class="form__grading">
+                Grade this attribute:
+                <div class="form__radio-wrapper">
+                    <input
+                            class="form__radio"
+                            id="grading-transport-1"
+                            type="radio"
+                            name="grading-transport"
+                            value="1"
+                    />
+                    <label for="grading-transport-1">
+                        Low relevance
+                    </label>
+                </div>
+                <div class="form__radio-wrapper">
+                    <input
+                            checked
+                            class="form__radio"
+                            id="grading-transport-2"
+                            type="radio"
+                            name="grading-transport"
+                            value="2"
+                    />
+                    <label for="grading-transport-2">
+                        Medium relevance
+                    </label>
+                </div>
+                <div class="form__radio-wrapper">
+                    <input
+                            class="form__radio"
+                            id="grading-transport-3"
+                            type="radio"
+                            name="grading-transport"
+                            value="3"
+                    />
+                    <label for="grading-transport-3">
+                        High relevance
+                    </label>
+                </div>
+            </div>
         </div>
 
         <div class="form__score">

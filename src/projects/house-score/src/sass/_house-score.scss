@@ -2,7 +2,7 @@
   &__score {
     background-color: $color-primary;
     color: white;
-    padding: 20px 0;
+    padding: 20px 0 20px 40px;
     font-size: 1.5rem;
   }
 
@@ -24,6 +24,8 @@
   &__controls {
     display: flex;
     justify-content: flex-end;
+    padding-left: 40px;
+    background-color: $color-primary;
   }
 
   &__result-name {
@@ -37,6 +39,11 @@
   color: white;
 }
 
+.results {
+  padding-left: 40px;
+  background: $color-tertiary;
+  color: white;
+}
 .result {
   &__item {
     display: flex;
