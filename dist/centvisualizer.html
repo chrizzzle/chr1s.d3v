@@ -25,7 +25,9 @@
 
 <body class="body">
 <section class="hero">
-    <img src="img/mario/banana.svg" alt="" class="hero__image"/>
+    <a href="index.html">
+        <img src="img/mario/beer.svg" alt="" class="hero__image"/>
+    </a>
     <div>
         <h1 class="hero__text">
             <a href="index.html" class="hero__link">
@@ -41,16 +43,18 @@
     <h2>Demo</h2>
 
     <div class="dashboard">
+        <p>How long does it take to spend 1¢? Add a monthly expense and find out.</p>
         <div class="dashboard__entries"></div>
         <div class="dashboard__total"></div>
 
         <div class="dashboard__add-entry dashboard__add-entry--hidden">
             <form action="" class="form">
                 <div class="form__group">
-                    <label for="expense">Expense:</label>
-                    <input type="text" name="expense" id="expense" />
+                    <label for="expense">Expense Name:</label>
+                    <input type="text" name="expense" id="expense"/>
                     <label for="amount">Amount:</label>
-                    <input type="number" name="amountPerMonth" id="amount" class="dashboard__add-entry-amount" /> € / month
+                    <input type="number" name="amountPerMonth" id="amount" class="dashboard__add-entry-amount"/> € /
+                    month
                     <br>
                     <br>
                     <button type="submit" class="dashboard__add-entry-submit">Save</button>
@@ -64,10 +68,9 @@
 
     <h2>Tags</h2>
     <div class="tag-area">
-        <div class="tag-area__tag">snake</div>
-        <div class="tag-area__tag">game</div>
-        <div class="tag-area__tag">simple</div>
-        <div class="tag-area__tag">object_oriented</div>
+        <div class="tag-area__tag">visualization</div>
+        <div class="tag-area__tag">charts</div>
+        <div class="tag-area__tag">dynamic</div>
         <div class="tag-area__tag">HTML5</div>
         <div class="tag-area__tag">JavaScript</div>
         <div class="tag-area__tag">CSS</div>
@@ -92,6 +95,6 @@
         </a>
     </div>
 </section>
-<script type="text/javascript" src="js/centspersecond.js"></script>
+<script type="text/javascript" src="js/centvisualizer.js"></script>
 </body>
 </html>

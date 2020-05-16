@@ -1,10 +1,10 @@
-const dashboard = document.querySelector(".dashboard");
 const dashboardAdd = document.querySelector(".dashboard__add");
 const dashboardEntries = document.querySelector(".dashboard__entries");
+const dashboardTotal = document.querySelector(".dashboard__total");
 const form = document.querySelector(".form");
 const dashboardAddForm = document.querySelector(".dashboard__add-entry");
 const dashboardAddClose = document.querySelector(".dashboard__add-entry-close");
-const storageKey = "chr1s.d3v:centsPerSecond";
+const storageKey = "chr1s.d3v:centVisualizer";
 
 const readEntries = () => {
     if (!window.localStorage) {
@@ -25,6 +25,7 @@ const deleteEntry = (e) => {
     const newEntries = entries.filter(entry => entry.expense !== expense);
     window.localStorage.setItem(storageKey, JSON.stringify(newEntries));
     renderEntries();
+    renderTotal();
 };
 
 const createEntry = (e) => {
@@ -36,7 +37,7 @@ const createEntry = (e) => {
     const formData = new FormData(form);
     const euroPerMonth = parseInt(formData.get("amountPerMonth"), 10);
     const animationDuration = calcAnimationDuration(euroPerMonth);
-    const centsPerSecond = calcEuroPerSecond(euroPerMonth) * 100
+    const centsPerSecond = calcEuroPerSecond(euroPerMonth) * 100;
     const save = {
         expense: formData.get("expense"),
         amountPerMonth: euroPerMonth,
@@ -47,6 +48,7 @@ const createEntry = (e) => {
     entries.push(save);
     window.localStorage.setItem(storageKey, JSON.stringify(entries));
     renderEntries();
+    renderTotal();
 };
 
 const calcEuroPerSecond = (euroPerMonth) => {
@@ -54,42 +56,83 @@ const calcEuroPerSecond = (euroPerMonth) => {
 };
 
 const calcAnimationDuration = (amountPerMonth) => {
-    const amountPerSecond = calcEuroPerSecond(amountPerMonth);
-    return `${Math.round(1 / amountPerSecond)}ms`;
+    const centPerSecond = calcEuroPerSecond(amountPerMonth) * 100;
+    return `${Math.round((1 / centPerSecond) * 1000) }ms`;
 };
+
+const calcTotalItem = () => {
+    const items = readEntries();
+    let item = items.reduce((acc, item) => {
+        acc.amountPerMonth += parseInt(item.amountPerMonth, 10);
+        acc.centsPerSecond += parseFloat(item.centsPerSecond);
+        return acc;
+    }, {
+        amountPerMonth: 0,
+        centsPerSecond: 0,
+        expense: "Total"
+    });
+
+    item.animationDuration = calcAnimationDuration(item.amountPerMonth);
+
+    return item;
+};
+
+const renderItem = (item, suppressDelete) => {
+    const chart = document.createElement("div");
+    const chartInner = document.createElement("div");
+    const chartText = document.createElement("div");
+    const chartAmount = document.createElement("div");
+    const chartDelete = document.createElement("button");
+
+    chart.classList.add("dashboard__entry");
+    chartInner.classList.add("dashboard__entry-inner");
+    chartInner.style.animationDuration = item.animationDuration;
+    chartAmount.classList.add("dashboard__entry-amount");
+    chartAmount.innerHTML = `${item.amountPerMonth}€ / mo. = ${item.centsPerSecond}¢ / s`;
+    chartText.classList.add("dashboard__entry-text");
+    chartText.innerHTML = item.expense;
+    chart.appendChild(chartInner);
+    chart.appendChild(chartText);
+    chart.appendChild(chartAmount);
+
+    if (suppressDelete) {
+        return chart;
+    }
+
+    chartDelete.classList.add("dashboard__entry-del");
+    chartDelete.dataset.expense = item.expense;
+    chartDelete.classList.add("material-icons");
+    chartDelete.innerHTML = "close";
+    chartDelete.addEventListener("click", deleteEntry);
+    chart.appendChild(chartDelete);
+    return chart;
+};
+
+const renderTotal = () => {
+    dashboardTotal.innerHTML = "";
+    const totalItem = calcTotalItem();
+
+    if (totalItem.centsPerSecond !== 0) {
+        const chart = renderItem(totalItem, true)
+        dashboardTotal.appendChild(chart);
+    }
+}
 
 const renderEntries = () => {
     const items = readEntries();
+    let chart;
     dashboardEntries.innerHTML = "";
     items.forEach((item) => {
-        const chart = document.createElement("div");
-        const chartInner = document.createElement("div");
-        const chartText = document.createElement("div");
-        const chartAmount = document.createElement("div");
-        const chartDelete = document.createElement("button");
-
-        chart.classList.add("dashboard__entry");
-        chartInner.classList.add("dashboard__entry-inner");
-        chartInner.style.animationDuration = item.animationDuration;
-        chartAmount.classList.add("dashboard__entry-amount");
-        chartAmount.innerHTML = `${item.centsPerSecond}¢ / s`;
-        chartText.classList.add("dashboard__entry-text");
-        chartText.innerHTML = item.expense;
-        chartDelete.classList.add("dashboard__entry-del");
-        chartDelete.dataset.expense = item.expense;
-        chartDelete.classList.add("material-icons");
-        chartDelete.innerHTML = "close";
-        chartDelete.addEventListener("click", deleteEntry);
-        chart.appendChild(chartInner);
-        chart.appendChild(chartText);
-        chart.appendChild(chartDelete);
-        chart.appendChild(chartAmount);
+        chart = renderItem(item)
         dashboardEntries.appendChild(chart);
     });
 };
 
 const init = function () {
-    renderEntries();
+    if (readEntries().length > 0) {
+        renderEntries();
+        renderTotal();
+    }
 }
 
 form.addEventListener("submit", createEntry)
