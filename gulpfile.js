@@ -43,7 +43,11 @@ gulp.task("css", function () {
 gulp.task("script-base", function () {
     return new Promise(function (resolve, reject) {
         gulp
-            .src(["src/js/polyfills.js", "node_modules/@babel/polyfill/dist/polyfill.js"])
+            .src([
+                "src/js/polyfills.js",
+                "src/js/formdata.js",
+                "node_modules/@babel/polyfill/dist/polyfill.js"
+            ])
             .pipe(
                 babel({
                     presets: ["@babel/env"],
