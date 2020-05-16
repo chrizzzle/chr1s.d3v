@@ -1,0 +1,69 @@
+
+@keyframes scaleRow {
+  from {width: 0;}
+  to {width: 100%;}
+}
+
+.dashboard {
+  padding: 0 2px;
+
+  &__add-entry {
+    &--hidden {
+      display: none;
+    }
+
+    &-amount {
+      width: 80px;
+    }
+  }
+
+  &__add {
+    &--hidden {
+      display: none;
+    }
+  }
+
+  &__entry {
+    background-color: rgba($color-primary, 0.5);
+    height: 40px;
+    position: relative;
+    display: flex;
+    align-items: center;
+
+
+    &-inner {
+      position: absolute;
+      background-color: $color-primary;
+      top: 4px;
+      bottom: 4px;
+      left: 4px;
+      width: 0;
+      animation: scaleRow 0s linear infinite;
+      z-index: 1;
+    }
+
+    &-text {
+      color: white;
+      z-index: 2;
+      position: absolute;
+      left: 15px;
+    }
+
+    &-amount {
+      color: white;
+      z-index: 2;
+      position: absolute;
+      right: 45px;
+
+    }
+
+    &-del {
+      position: absolute;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      z-index: 2;
+      background-color: transparent;
+    }
+  }
+}
