@@ -29,6 +29,8 @@ const deleteEntry = (e) => {
 };
 
 const createEntry = (e) => {
+    e.preventDefault();
+    e.stopPropagation();
     if (!window.localStorage) {
         console.error("localStorage not found.");
         return;
