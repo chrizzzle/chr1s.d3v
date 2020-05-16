@@ -66,7 +66,7 @@ const calcTotalItem = () => {
     const items = readEntries();
     let item = items.reduce((acc, item) => {
         acc.amountPerMonth += parseInt(item.amountPerMonth, 10);
-        acc.centsPerSecond += parseFloat(item.centsPerSecond);
+        acc.centsPerSecond += parseFloat(item.centsPerSecond).toFixed(4);
         return acc;
     }, {
         amountPerMonth: 0,
