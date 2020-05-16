@@ -44,6 +44,11 @@ gulp.task("script-base", function () {
     return new Promise(function (resolve, reject) {
         gulp
             .src(["src/js/polyfills.js", "node_modules/@babel/polyfill/dist/polyfill.js"])
+            .pipe(
+                babel({
+                    presets: ["@babel/env"],
+                })
+            )
             .pipe(concat("base.js"))
             .pipe(uglify())
             .pipe(flatten())
@@ -62,14 +67,14 @@ gulp.task("script", function () {
             .src([
                 config.js
             ])
-            //.pipe(sourcemaps.init())
+            .pipe(sourcemaps.init())
             .pipe(
                 babel({
                     presets: ["@babel/env"],
                 })
             )
             .pipe(uglify())
-            //.pipe(sourcemaps.write("."))
+            .pipe(sourcemaps.write("."))
             .pipe(flatten())
             .pipe(gulp.dest(config.dist + "js"))
             .on("end", resolve)
