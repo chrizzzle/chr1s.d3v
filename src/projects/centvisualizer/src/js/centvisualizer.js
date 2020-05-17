@@ -36,12 +36,13 @@ const createEntry = (e) => {
         return;
     }
     const form = e.currentTarget;
-    const formData = new FormData(form);
-    const euroPerMonth = parseInt(formData.get("amountPerMonth"), 10);
+    const amount = form.querySelector("#amount").value;
+    const expense = form.querySelector("#expense").value;
+    const euroPerMonth = parseInt(amount, 10);
     const animationDuration = calcAnimationDuration(euroPerMonth);
     const centsPerSecond = calcEuroPerSecond(euroPerMonth) * 100;
     const save = {
-        expense: formData.get("expense"),
+        expense: expense,
         amountPerMonth: euroPerMonth,
         centsPerSecond: centsPerSecond.toFixed(4),
         animationDuration

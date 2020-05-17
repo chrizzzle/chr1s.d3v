@@ -45,7 +45,6 @@ gulp.task("script-base", function () {
         gulp
             .src([
                 "src/js/polyfills.js",
-                "src/js/formdata.js",
                 "node_modules/@babel/polyfill/dist/polyfill.js"
             ])
             .pipe(concat("base.js"))
