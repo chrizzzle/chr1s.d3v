@@ -115,7 +115,7 @@ const renderTotal = () => {
     dashboardTotal.innerHTML = "";
     const totalItem = calcTotalItem();
 
-    if (totalItem.centsPerSecond !== 0) {
+    if (totalItem.amountPerMonth !== 0) {
         const chart = renderItem(totalItem, true)
         dashboardTotal.appendChild(chart);
     }
