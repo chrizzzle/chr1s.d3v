@@ -48,11 +48,6 @@ gulp.task("script-base", function () {
                 "src/js/formdata.js",
                 "node_modules/@babel/polyfill/dist/polyfill.js"
             ])
-            .pipe(
-                babel({
-                    presets: ["@babel/env"],
-                })
-            )
             .pipe(concat("base.js"))
             .pipe(uglify())
             .pipe(flatten())
