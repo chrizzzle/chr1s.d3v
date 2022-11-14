@@ -110,14 +110,28 @@ gulp.task("assets", function () {
     });
 });
 
+gulp.task("fonts", function () {
+    return new Promise(function (resolve, reject) {
+        gulp
+            .src(config.assets)
+            .pipe(gulp.dest(config.dist + "/fonts"))
+            .on("end", resolve)
+            .on("error", (error) => {
+                console.error(error);
+                reject();
+            });
+    });
+});
+
 //Watch task
 gulp.task("default", function () {
     gulp.watch(config.sass, gulp.series("css"));
     gulp.watch(config.js, gulp.series("script"));
     gulp.watch(config.html, gulp.series("html"));
     gulp.watch(config.assets, gulp.series("assets"));
+    gulp.watch(config.assets, gulp.series("fonts"));
 });
 
 gulp.task("build", (done) => {
-    gulp.parallel("script-base", "css", "script", "html", "assets")(done);
+    gulp.parallel("script-base", "css", "script", "html", "assets", "fonts")(done);
 });
