@@ -23,7 +23,8 @@
     "@babel/polyfill": "^7.8.7",
     "gulp-concat": "^2.6.1",
     "input-range-scss": "^1.5.2",
-    "material-design-icons": "^3.0.1"
+    "material-design-icons": "^3.0.1",
+    "sass": "^1.69.6"
   },
   "browserslist": [
     "> 1%",
@@ -49,7 +50,7 @@
     "gulp-clean-css": "^4.3.0",
     "gulp-flatten": "^0.4.0",
     "gulp-postcss": "^8.0.0",
-    "gulp-sass": "^4.1.0",
+    "gulp-sass": "^5.1.0",
     "gulp-sourcemaps": "^2.6.5",
     "gulp-uglify": "^3.0.2",
     "normalize.css": "^8.0.1"
