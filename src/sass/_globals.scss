@@ -388,3 +388,14 @@ label {
   &__radio-wrapper {
   }
 }
+
+
+.preview-image {
+  display: flex;
+  gap: 10px;
+}
+
+.preview-image__screen {
+  flex: 1;
+  max-width: 250px;
+}
